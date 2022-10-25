@@ -10,8 +10,18 @@ const Color purpleColor = Color(0xffB5428C);
 const Color orangeColor =  Colors.orange;
 
 //* Font Size
+const double xLargeTitleFontSize= 22;
 const double largeTitleFontSize= 20;
 const double titleFontSize=18;
+const double primaryFontSize=16;
+const double smallFontSize=14;
+const double xSmallFontSize=12;
+
+
+//* Icons Size
+const double iconSize1=40;
+const double iconSize2=24;
+const double iconSize3=16;
 
 
 

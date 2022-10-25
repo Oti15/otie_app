@@ -4,6 +4,7 @@ import 'package:otie_app/view/home_page/page_view/page_view_main.dart';
 import 'package:otie_app/view/home_page/page_view/pages_to_view.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
+import '../create_order_page/create_order_page.dart';
 import 'widgets/catogary.dart';
 import 'widgets/services.dart';
 
@@ -15,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   void dispose() {
     controller.dispose();
@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
                 return IconButton(
                   icon: const Icon(
                     Icons.notifications_none_outlined,
-                    size: 40,
+                    size: iconSize1,
                     color: Colors.black,
                   ),
                   onPressed: () {
@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               return IconButton(
                 icon: const Icon(
                   Icons.account_circle_outlined,
-                  size: 40,
+                  size: iconSize1,
                   color: Colors.black,
                 ),
                 onPressed: () {
@@ -66,20 +66,16 @@ class _HomePageState extends State<HomePage> {
               );
             },
           ),
-          title: Column(
-            children: const [
-              Center(
-                child: Text(
-                  "OTIE  أوتي",
-                  style: TextStyle(
-                   height: 5,
-                      fontSize: 22,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Bold',
-                      color: Colors.black),
-                ),
-              ),
-            ],
+          title: const Center(
+            child: Text(
+              "OTIE  أوتي",
+              style: TextStyle(
+                  height: 5,
+                  fontSize: xLargeTitleFontSize,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Bold',
+                  color: Colors.black),
+            ),
           ),
         ),
         body: ListView(
@@ -98,11 +94,11 @@ class _HomePageState extends State<HomePage> {
                         color: Colors.black),
                   ),
                 ),
-                MyPageView(pageCount: 3,),
+                MyPageView(
+                  pageCount: 3,
+                ),
                 const Padding(
-                  padding: EdgeInsets.only(
-                    left: 20,top: 25
-                  ),
+                  padding: EdgeInsets.only(left: 20, top: 25),
                   child: Text(
                     "Select servies",
                     style: TextStyle(
@@ -116,11 +112,12 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
-                      children: const [
+                      children: [
                         catogary(
                           x: false,
                           name: 'Home \nCleaning',
                           image: 'assets/images/home_cleaning.png',
+                          detailsPage: CreateOrderPage(),
                         ),
                         SizedBox(
                           width: 10,
@@ -129,21 +126,20 @@ class _HomePageState extends State<HomePage> {
                           x: false,
                           name: 'Laundry',
                           image: 'assets/images/laundry.png',
+                          detailsPage: CreateOrderPage(),
                         )
                       ],
                     ),
-                    const catogary(
+                   catogary(
                       x: true,
                       name: 'Washing and cleaning',
                       image: 'assets/images/washing_and_cleaning.png',
+                     detailsPage: CreateOrderPage(),
                     )
                   ],
                 ),
                 const Padding(
-                  padding: EdgeInsets.only(
-                    left: 25,
-                    top:25
-                  ),
+                  padding: EdgeInsets.only(left: 25, top: 25),
                   child: Text(
                     "Home cleaning services",
                     style: TextStyle(
@@ -171,6 +167,3 @@ class _HomePageState extends State<HomePage> {
         ));
   }
 }
-
-
-
