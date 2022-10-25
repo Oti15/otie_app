@@ -28,7 +28,7 @@ class _CardOrderReviewState extends State<CardOrderReview> {
     double widthScreen = MediaQuery.of(context).size.width;
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      margin: const EdgeInsets.only(top: 16),
+      margin: const EdgeInsets.only(top: 4),
       height: heightScreen * 0.1,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(15), color: primaryBgColor),
@@ -53,7 +53,7 @@ class _CardOrderReviewState extends State<CardOrderReview> {
               Text(
                 "${widget.des} ",
                 style: const TextStyle(
-                    fontWeight: FontWeight.normal, fontSize: xSmallFontSize,color:Colors.grey),
+                    fontWeight: FontWeight.normal, fontSize: xSmallFontSize,color:grayColor3),
               ),
             ],
           ),

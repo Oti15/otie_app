@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:otie_app/view/create_order_page/widgets/card_item.dart';
+import 'package:otie_app/widgets/card_item.dart';
 import 'package:otie_app/widgets/my_buttom.dart';
 
 import '../../model/cart_item_model.dart';
@@ -44,7 +44,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
             MyButtom(text: "Done", onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const OrderReviewPage()),
+                MaterialPageRoute(builder: (context) =>  OrderReviewPage(totalPrice: totalPrice,)),
               );
             }, color: primaryColor, height: heightScreen*0.07, width: widthScreen*0.8)
           ],

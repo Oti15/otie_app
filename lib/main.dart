@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:otie_app/view/OnBoarding/onbording_screen.dart';
 import 'package:otie_app/view/splash_screen/splash_screen.dart';
+import 'package:otie_app/view/washing_and_cleaning/washing_and_cleaning.dart';
+
+import 'auth/SignUP.dart';
 
 void main() {
   runApp(const MyApp());

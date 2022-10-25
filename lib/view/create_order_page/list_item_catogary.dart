@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:otie_app/view/create_order_page/widgets/card_item.dart';
+import 'package:otie_app/widgets/card_item.dart';
 
 import '../../model/cart_item_model.dart';
 
@@ -17,7 +17,7 @@ class ItemCatogaryList extends StatelessWidget {
           itemCount: CardItemList.length,
           itemBuilder: (context, index) => CardItem(
             icon: CardItemList[index].icon,
-            name: CardItemList[index].name,
+            title: CardItemList[index].name,
             price: CardItemList[index].price,
           )),
     );

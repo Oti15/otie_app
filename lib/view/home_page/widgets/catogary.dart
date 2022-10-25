@@ -35,7 +35,7 @@ class catogary extends StatelessWidget {
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 border: Border.all(
-                    color: primaryColor
+                    color: grayColor2
                 ),
               ),
               child: InkWell(

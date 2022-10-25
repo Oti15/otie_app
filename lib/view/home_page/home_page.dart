@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:otie_app/utils/constants.dart';
 import 'package:otie_app/view/home_page/page_view/page_view_main.dart';
-import 'package:otie_app/view/home_page/page_view/pages_to_view.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-
+import 'package:otie_app/view/home_page/widgets/home_page_app_bar.dart';
 import '../create_order_page/create_order_page.dart';
 import 'widgets/catogary.dart';
 import 'widgets/services.dart';
@@ -29,55 +27,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: primaryBgColor,
-        appBar: AppBar(
-          elevation: 0,
-          toolbarHeight: 100,
-          backgroundColor: Colors.white,
-          actions: [
-            Builder(
-              builder: (BuildContext context) {
-                return IconButton(
-                  icon: const Icon(
-                    Icons.notifications_none_outlined,
-                    size: iconSize1,
-                    color: Colors.black,
-                  ),
-                  onPressed: () {
-                    //Navegate to notification page
-                  },
-                );
-              },
-            ),
-            const SizedBox(
-              width: 5,
-            ),
-          ],
-          leading: Builder(
-            builder: (BuildContext context) {
-              return IconButton(
-                icon: const Icon(
-                  Icons.account_circle_outlined,
-                  size: iconSize1,
-                  color: Colors.black,
-                ),
-                onPressed: () {
-                  //Navegate to profile page
-                },
-              );
-            },
-          ),
-          title: const Center(
-            child: Text(
-              "OTIE  أوتي",
-              style: TextStyle(
-                  height: 5,
-                  fontSize: xLargeTitleFontSize,
-                  fontWeight: FontWeight.bold,
-                  fontFamily: 'Bold',
-                  color: Colors.black),
-            ),
-          ),
-        ),
+        appBar: HomePageAppBar(),
         body: ListView(
           children: [
             Column(
@@ -119,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                           image: 'assets/images/home_cleaning.png',
                           detailsPage: CreateOrderPage(),
                         ),
-                        SizedBox(
+                        const SizedBox(
                           width: 10,
                         ),
                         catogary(

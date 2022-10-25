@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 
+import '../../../utils/constants.dart';
+
 class services extends StatelessWidget {
   const services({
     Key? key,
@@ -16,22 +18,22 @@ child: Stack(
         children: [
           Container(
             margin:
-            EdgeInsets.only(left:20,top:15 ),
+            const EdgeInsets.only(left:20,top:15 ),
             height: 70,
             width: MediaQuery.of(context).size.width/1.5,
             decoration: BoxDecoration(
-              borderRadius: BorderRadius.only(
+              borderRadius: const BorderRadius.only(
                   topLeft: Radius.circular(30),
                   topRight:  Radius.circular(30)),
               border: Border.all(
-                  color: Color(0xFFF05A25)
+                  color: grayColor2
               ),
             ),
             child: Padding(
               padding:
               EdgeInsets.only(left: 15,top: 18),
               child: Text(name,
-                style: TextStyle(
+                style: const TextStyle(
                     fontSize: 28,
                     //fontWeight: FontWeight.bold,
                     fontFamily: 'mid',
@@ -48,7 +50,7 @@ child: Stack(
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(30),
               border: Border.all(
-                  color: Color(0xFFF05A25)
+                  color: grayColor2
               ),
             ),
 
