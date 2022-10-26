@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:otie_app/view/OnBoarding/onbording_screen.dart';
+import 'package:otie_app/view/home_clening/view1.dart';
+import 'package:otie_app/view/home_clening/view2.dart';
 import 'package:otie_app/view/splash_screen/splash_screen.dart';
 
 void main() {
@@ -12,6 +14,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
@@ -27,7 +30,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:  SplashScreen(),
+      home:  HomeCleningp2(),
     );
   }
 }
