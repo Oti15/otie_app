@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:otie_app/view/OnBoarding/onbording_screen.dart';
+import 'package:otie_app/view/home_clening/view1.dart';
+import 'package:otie_app/view/home_clening/view2.dart';
+import 'package:otie_app/view/home_clening/view3.dart';
 import 'package:otie_app/view/splash_screen/splash_screen.dart';
 import 'package:otie_app/view/washing_and_cleaning/washing_and_cleaning.dart';
 
@@ -31,7 +34,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:  SplashScreen(),
+      home:  HomeCleningp1(),
     );
   }
 }

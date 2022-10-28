@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../../utils/constants.dart';
 import '../../widgets/card_item.dart';
 import '../../widgets/dropdown.dart';
-import '../../widgets/my_buttom.dart';
-import '../../widgets/my_simple_app_bar.dart';
+import '../widgets/my_buttom.dart';
+import '../widgets/my_simple_app_bar.dart';
 
 class DetailsWashinCleaning extends StatefulWidget {
   const DetailsWashinCleaning(

@@ -4,8 +4,8 @@ import 'package:otie_app/view/washing_and_cleaning/widgets/card_of_washing_and_c
 
 import '../../model/card_home_cleaning_model.dart';
 import '../../utils/constants.dart';
-import '../../widgets/my_simple_app_bar.dart';
 
+import '../widgets/my_simple_app_bar.dart';
 import 'details_washin_cleaning.dart';
 
 class WashingCLeaning extends StatefulWidget {

@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import '../../home_page/home_page.dart';
-import '../onbording_content.dart';
+import '../../home/home_screen.dart';
+import '../UnbordingContent.dart';
 
 class ButtomOnBording extends StatelessWidget {
   const ButtomOnBording({
@@ -31,7 +31,7 @@ class ButtomOnBording extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => HomePage(),
+                builder: (_) => HomeScreen(),
               ),
             );
           }

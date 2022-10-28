@@ -1,12 +1,19 @@
 import 'package:flutter/material.dart';
 
-import '../utils/constants.dart';
+import '../../utils/constants.dart';
+
 
 AppBar MySimpleAppBar({required String title}){
   return AppBar(
+    toolbarHeight: 100,
     elevation: 0,
     backgroundColor: primaryBgColor,
     centerTitle: true,
+    actions: [
+      SizedBox(
+        width: 55,
+      ),
+    ],
     leading: Builder(
       builder: (BuildContext context) {
         return IconButton(
