@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:otie_app/view/home/home_screen.dart';
 import 'package:simple_gradient_text/simple_gradient_text.dart';
-import '../../utils/constants.dart';
-import 'onbording_content.dart';
+
+import 'UnbordingContent.dart';
 import 'widgets/buildDot.dart';
 import 'widgets/buttom_onbording.dart';
 
@@ -29,7 +31,7 @@ class _OnbordingState extends State<Onbording> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: primaryBgColor,
+      backgroundColor: Color(0xfffffffe),
       body: Column(
         children: [
           Expanded(
@@ -46,17 +48,14 @@ class _OnbordingState extends State<Onbording> {
                   padding: const EdgeInsets.symmetric(vertical: 40,horizontal: 16),
                   child: Column(
                     children: [
-                      Spacer(),
                       Image.asset(
                         contents[i].image,
-                        height: MediaQuery.of(context).size.height*0.25,
-                        width: MediaQuery.of(context).size.width*0.7,
+                        height: 300,
                       ),
-                      Spacer(),
                       GradientText(
                         contents[i].title,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 32,
 
                         ),
@@ -64,16 +63,16 @@ class _OnbordingState extends State<Onbording> {
                         gradientDirection: GradientDirection.ttb,
                         radius: .4,
                         colors: const [
-                          purpleColor,
-                          primaryColor,
+                          Color(0xffB5428C),
+                          Color(0xffFF7500),
                         ],
                       ),
 
-                      const SizedBox(height: 20),
+                      SizedBox(height: 20),
                       Text(
                         contents[i].discription,
                         textAlign: TextAlign.center,
-                        style: const TextStyle(
+                        style: TextStyle(
                           fontSize: 24,
                           color: Colors.grey,
                         ),

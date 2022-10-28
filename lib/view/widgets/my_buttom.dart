@@ -23,7 +23,9 @@ class MyButtom extends StatelessWidget {
       width: width,
       height: height,
       child: ElevatedButton(
-        style: ElevatedButton.styleFrom(primary: color, shape: StadiumBorder()),
+        style: ElevatedButton.styleFrom(
+            primary: color,
+            shape: StadiumBorder(),),
         onPressed: onPressed,
         child: Center(child: Text(text)),
       ),
