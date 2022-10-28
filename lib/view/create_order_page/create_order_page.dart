@@ -1,12 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otie_app/widgets/card_item.dart';
-import 'package:otie_app/widgets/my_buttom.dart';
 
 import '../../model/cart_item_model.dart';
 import '../../utils/constants.dart';
-import '../../widgets/my_simple_app_bar.dart';
 import '../order_review/order_review.dart';
+import '../widgets/my_buttom.dart';
+import '../widgets/my_simple_app_bar.dart';
 import 'list_item_catogary.dart';
 
 class CreateOrderPage extends StatefulWidget {
