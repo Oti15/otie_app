@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../utils/constants.dart';
+import 'widgets/check.dart';
 
 class HomeCleningp2 extends StatefulWidget {
   const HomeCleningp2({Key? key}) : super(key: key);
@@ -64,51 +65,37 @@ class _HomeCleningp2State extends State<HomeCleningp2> {
                   color: Colors.black),
             ),
           ),
-          Center(
-            child: Container(
-              margin: EdgeInsets.only(left: 0, top: 20),
-              height: 80,
-              width: MediaQuery.of(context).size.width - 40,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(20),
-                border: Border.all(color: Color(0xFFDDD0C5)),
-              ),
-              child: Stack(
-                children: [
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, top: 0),
-                        child: Text(
-                          "1 Cleaner",
-                          style: TextStyle(
-                              fontSize: largeTitleFontSize,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Bold',
-                              color: Colors.grey),
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.only(left: 20, top: 0),
-                        child: Text(
-                          "from   10,000 IQD",
-                          style: TextStyle(
-                              fontSize: largeTitleFontSize,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Bold',
-                              color: Colors.grey),
-                        ),
-                      )
-                    ],
-                  ),
+          MyRadioListTile(
+            cleanerNum: 1,
+            price: '10,000',
+            value: '1C : 10,000',
+            onChanged: (value) {
+              setState(() {
+                choose ="$value";
+              });
+            },
+            groupValue: choose,),
+          MyRadioListTile(
+            cleanerNum: 2,
+            price: '20,000',
+            value: '2C : 20,000',
+            onChanged: (value) {
+              setState(() {
+                choose ="$value";
+              });
+            },
+            groupValue: choose,),
+          MyRadioListTile(
+            cleanerNum: 3,
+            price: '30,000',
+            value: '3C : 30,000',
+            groupValue: choose,
+            onChanged: (value) {
+              setState(() {
+                choose ="$value";
+              });
+            },)
 
-
-                  ]
-              ),
-            ),
-          ),
         ],
       ),
     );
