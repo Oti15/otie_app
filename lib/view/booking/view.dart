@@ -1,5 +1,7 @@
+
+
 import 'package:flutter/material.dart';
-import 'package:calender_picker/calender_picker.dart';
+
 import 'package:otie_app/utils/constants.dart';
 import 'package:otie_app/view/widgets/my_buttom.dart';
 import 'package:otie_app/view/widgets/my_simple_app_bar.dart';
@@ -14,11 +16,20 @@ class Booking extends StatefulWidget {
   @override
   State<Booking> createState() => _BookingState();
 }
+// define object of data single date in list date use it in fun in line 425
+class objectDay{
+  late int day;
+  late String name;
+}
 
 class _BookingState extends State<Booking> {
   String choose ='Morning';
   String selectedValue='Pickup';
   String Delivery ='Regular Delivery';
+  // use it to get list of 7 days after today in line 97 from fun in line 425
+  var arrayDays = list7days();
+  // define selected day
+  int selectedDay = DateTime.now().day;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,7 +77,32 @@ class _BookingState extends State<Booking> {
                       },height: 105, radius: 15, width: 175, border: 1,),
                   ],
                 ),
-              SizedBox(height: 150,),
+              // pickup date
+              Padding(
+                padding:
+                EdgeInsets.only(left: 20, top: 20),
+                child: Text("Pickup Date",
+                  style: TextStyle(
+                      fontSize: primaryFontSize,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Bold',
+                      color: Colors.black
+                  ),),
+              ),
+              SizedBox(height: 15,),
+              
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children:
+                  arrayDays.map((date) => (
+                  selectedDay == date.day ?
+                    listDate(true, date?.day, date?.name)
+                    :
+                    listDate(false, date?.day, date?.name)
+                  )).toList(),
+              ),
+              SizedBox(height: 30,),
+
               Padding(
                 padding:
                 EdgeInsets.only(left: 20, top: 20),
@@ -355,4 +391,100 @@ class _BookingState extends State<Booking> {
           ),
     );
   }
+  GestureDetector listDate(
+      bool active,
+      int day,
+      String name
+      ){
+    return  GestureDetector(
+        onTap: (){
+          setState(() {
+            selectedDay = day;
+            print(day);
+          });
+        },
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 18, vertical: 10),
+          decoration: BoxDecoration(
+              color: active ? Color(0xffF05A25) : null,
+              borderRadius: BorderRadius.circular(20)
+          ),
+          child:Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(name, style: TextStyle(color: active ? Colors.white : Colors.grey, fontWeight: FontWeight.bold, fontSize: 18),),
+            SizedBox(height: 5,),
+            Text("${day}", style: TextStyle(color: active ? Colors.white : Colors.black, fontSize: 18))
+          ],
+        ),
+        )
+    );
+  }
+}
+
+ List list7days(){
+  DateTime date1 = DateTime.now();
+  var arrayDate = [];
+  for(int i=0; i < 7; i++){
+    DateTime newDate = i == 0 ? date1 : date1.add(Duration(days: i));
+    switch(newDate.weekday){
+      case DateTime.saturday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Sa";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      case DateTime.sunday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Su";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      case DateTime.monday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Mo";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      case DateTime.tuesday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Tu";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      case DateTime.wednesday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "We";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      case DateTime.thursday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Th";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      case DateTime.friday as int: {
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Fr";
+        arrayDate.add(dayDetails);
+      }
+      break;
+      default:{
+        var dayDetails = new objectDay();
+        dayDetails.day = newDate.day;
+        dayDetails.name = "Fr";
+        arrayDate.add(dayDetails);
+      }
+      break;
+    }
+}
+return arrayDate;
 }
