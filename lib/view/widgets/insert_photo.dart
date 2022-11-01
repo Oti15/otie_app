@@ -17,6 +17,7 @@ class InsertPhoto extends StatelessWidget {
     return Container(
       child: Center(
         child: Container(
+          margin: EdgeInsets.all(5),
           height: height,
           width: width,
           decoration: BoxDecoration(

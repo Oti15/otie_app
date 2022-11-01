@@ -13,10 +13,12 @@ AppBar HomePageAppBar(){
       Builder(
         builder: (BuildContext context) {
           return IconButton(
+            highlightColor:Colors.white,
             icon: const Icon(
               Icons.notifications_none_outlined,
               size: iconSize1,
               color: Colors.black,
+
             ),
             onPressed: () {
               //Navegate to notification page
@@ -31,6 +33,7 @@ AppBar HomePageAppBar(){
     leading: Builder(
       builder: (BuildContext context) {
         return IconButton(
+          highlightColor:Colors.white,
           icon: const Icon(
             Icons.account_circle_outlined,
             size: iconSize1,
@@ -46,7 +49,7 @@ AppBar HomePageAppBar(){
       child: Text(
         "OTIE  أوتي",
         style: TextStyle(
-            height: 5,
+            height: 3,
             fontSize: xLargeTitleFontSize,
             fontWeight: FontWeight.bold,
             fontFamily: 'Bold',

@@ -31,6 +31,7 @@ class MyRadioListTile<T> extends StatelessWidget {
           child: Padding(
               padding: EdgeInsets.only(right: 0, top: 0),
               child: InkWell(
+                highlightColor: Colors.white,
                 onTap: () => onChanged(value),
                 child: Container(
                   height: 80,

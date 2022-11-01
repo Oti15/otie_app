@@ -19,6 +19,7 @@ class delivery<T> extends StatelessWidget {
   Widget build(BuildContext context) {
     final isSelected = value == groupValue;
     return  InkWell(
+      highlightColor: Colors.white,
                 onTap: () => onChanged(value),
                 child: Container(
                   height: 20,

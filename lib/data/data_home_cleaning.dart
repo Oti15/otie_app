@@ -1,3 +1,23 @@
+List<String> levelName = [
+  'Bronze',
+  'Silver',
+  'Gold'
+];
+
+List<String> minTime = [
+  '1 Hrs',
+  '2 Hrs',
+  '3 Hrs'
+];
+
+List<String> price1 = [
+  '10,000 IQD',
+  '20,000 IQD',
+  '30,000 IQD',
+];
+
+
+
 List<int> cleanerNum = [
   1,
   2,

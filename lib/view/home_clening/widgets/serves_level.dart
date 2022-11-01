@@ -29,7 +29,7 @@ class _ServiceLevelState extends State<ServiceLevel> {
           Container(
             margin:
             EdgeInsets.only(left:20,top:15 ),
-            height: 110,
+            height: MediaQuery.of(context).size.height*0.135,
             width: MediaQuery.of(context).size.width-40,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.only(
@@ -139,8 +139,8 @@ class _ServiceLevelState extends State<ServiceLevel> {
                       child: Text("Select",style:
                       TextStyle(fontSize: largeTitleFontSize,color: Colors.white,fontWeight: FontWeight.bold,fontFamily: 'mid'),),
                     ),
-                    height: 50,
-                    width: 100,) ,),
+                    height: MediaQuery.of(context).size.height*0.06,
+                    width: MediaQuery.of(context).size.width*0.25,) ,),
               ],
             ),
 
@@ -149,7 +149,7 @@ class _ServiceLevelState extends State<ServiceLevel> {
             child: Container(
               margin:
               EdgeInsets.only(left:0,top:124),
-              height: 180,
+              height: MediaQuery.of(context).size.height*0.23,
               width: MediaQuery.of(context).size.width-40,
               decoration: BoxDecoration(
                 color: Color(0xFFF2F2F2),

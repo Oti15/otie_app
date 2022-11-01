@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:otie_app/data/data_home.dart';
 import 'package:otie_app/utils/constants.dart';
 
+import '../../data/data_home_cleaning.dart';
 import '../widgets/my_simple_app_bar.dart';
 import 'widgets/serves_level.dart';
 
@@ -48,7 +48,7 @@ class _HomeCleningp1State extends State<HomeCleningp1> {
                           ServiceLevel(
                             level: levelName[index],
                             time: minTime[index],
-                            price: price[index],
+                            price: price1[index],
                       );
                     }
                 ),
