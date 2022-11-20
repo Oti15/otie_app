@@ -7,7 +7,7 @@ import '../../../utils/constants.dart';
 AppBar HomePageAppBar(){
   return AppBar(
     elevation: 0,
-    toolbarHeight: 100,
+    toolbarHeight: 80,
     backgroundColor: Colors.white,
     actions: [
       Builder(
