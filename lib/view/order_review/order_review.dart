@@ -35,23 +35,30 @@ class _OrderReviewPageState extends State<OrderReviewPage> {
               child: Text(
                 "Subtotal (5 item) :",
                 style: TextStyle(
-                    fontWeight: FontWeight.bold, fontSize: primaryFontSize,),
+                  fontWeight: FontWeight.bold,
+                  fontSize: primaryFontSize,
+                ),
               ),
             ),
-             const Spacer(),
-             Text(
-               "${widget.totalPrice} IDQ",
-               style: const TextStyle(
-                   fontWeight: FontWeight.bold, fontSize: xLargeTitleFontSize,color: primaryColor),
-             ),
-            const SizedBox(height: 16,),
+            const Spacer(),
+            const Spacer(),
+            Text(
+              "${widget.totalPrice} IDQ",
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: xLargeTitleFontSize,
+                  color: primaryColor),
+            ),
+            const Spacer(),
             MyButtom(
                 text: "Booking Now",
                 onPressed: () {},
                 color: primaryColor,
                 height: heightScreen * 0.07,
                 width: widthScreen * 0.8),
-            const SizedBox(height: 16,),
+            const Spacer(),
+            const Spacer(),
+            const Spacer(),
           ],
         ),
       ),

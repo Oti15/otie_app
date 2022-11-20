@@ -30,9 +30,11 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children:  [
-            const ItemCatogaryList(),
+             ItemCatogaryList(),
+            Spacer(),
+            Spacer(),
             Padding(
-              padding: const EdgeInsets.only(left: 8.0,right: 8,top:0,bottom: 16),
+              padding: const EdgeInsets.only(left: 8.0,right: 8,),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:  [
@@ -41,12 +43,15 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
                 ],
               ),
             ),
+            Spacer(),
             MyButtom(text: "Done", onPressed: (){
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) =>  OrderReviewPage(totalPrice: totalPrice,)),
               );
-            }, color: primaryColor, height: heightScreen*0.07, width: widthScreen*0.8)
+            }, color: primaryColor, height: heightScreen*0.07, width: widthScreen*0.8),
+            Spacer(),
+            Spacer(),
           ],
         ),
       ),

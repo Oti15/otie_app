@@ -4,14 +4,11 @@ import 'package:otie_app/widgets/card_item.dart';
 import '../../model/cart_item_model.dart';
 
 class ItemCatogaryList extends StatelessWidget {
-  const ItemCatogaryList({
-    Key? key,
-  }) : super(key: key);
-
+  var totalPrice=0;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: MediaQuery.of(context).size.height*0.7,
+      height: MediaQuery.of(context).size.height*0.6,
       child: ListView.builder(
           physics:ScrollPhysics(),
           itemCount: CardItemList.length,
@@ -19,7 +16,9 @@ class ItemCatogaryList extends StatelessWidget {
             icon: CardItemList[index].icon,
             title: CardItemList[index].name,
             price: CardItemList[index].price,
-          )),
+          )
+      ),
     );
   }
+
 }

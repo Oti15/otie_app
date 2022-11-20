@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:otie_app/utils/constants.dart';
 
 class IncDecButtom extends StatelessWidget {
   IncDecButtom({
     Key? key,
-    required this.text,
+    required this.icon,
     required this.onTap,
   }) : super(key: key);
 
-  final String text;
+  final String icon;
    var onTap;
 
   @override
@@ -23,7 +24,7 @@ class IncDecButtom extends StatelessWidget {
           borderRadius: BorderRadius.circular(50),
               color: primaryColor
         ),
-          child: Center(child: Text(text,style: const TextStyle(color: Colors.white,fontSize: 28),)),
+          child: Center(child: SvgPicture.asset(icon,height: 16,color: Colors.white,)),
 
       ),
     );

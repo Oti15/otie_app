@@ -40,6 +40,7 @@ dependencies:
   simple_gradient_text: ^1.2.4
   smooth_page_indicator: ^1.0.0+2
   calender_picker: ^1.0.7
+  get: ^4.6.5
 
 dev_dependencies:
   flutter_test:

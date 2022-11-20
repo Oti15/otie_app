@@ -66,10 +66,13 @@ class _CardItemState extends State<CardItem> {
           ),
           Spacer(),
           IncDecButtom(
-            text: '-',
+            icon: 'assets/icons/minus.svg',
             onTap: () {
               if (count != 0) {
                 count--;
+                subTotalPrice =1;
+                subTotalPrice = int.parse(widget.price) * count;
+                print (subTotalPrice);
               }
               setState(() {});
             },
@@ -82,14 +85,20 @@ class _CardItemState extends State<CardItem> {
             ),
           ),
           IncDecButtom(
-            text: '+',
+            icon: 'assets/icons/plus.svg',
             onTap: () {
               count++;
+              subTotalPrice =1;
+              subTotalPrice = int.parse(widget.price) * count;
+              print (subTotalPrice);
               setState(() {});
             },
           ),
+
         ],
+
       ),
     );
+
   }
 }
