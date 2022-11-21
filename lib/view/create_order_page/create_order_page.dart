@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:otie_app/view/create_order_page/total_price.dart';
 import 'package:otie_app/widgets/card_item.dart';
 
 import '../../model/cart_item_model.dart';
@@ -22,7 +24,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
   Widget build(BuildContext context) {
     double heightScreen =MediaQuery.of(context).size.height;
     double widthScreen =MediaQuery.of(context).size.width;
-    int totalPrice=0;
+
     return Scaffold(
       backgroundColor: primaryBgColor,
       appBar: MySimpleAppBar(title: 'Creat Order'),
@@ -39,7 +41,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:  [
                   const Text("Total Price:",style: TextStyle(fontWeight: FontWeight.bold,fontSize: xLargeTitleFontSize),),
-                  Text("$totalPrice IDQ",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: xLargeTitleFontSize),),
+                 Obx(()=> Text("${totalPrice.value} IDQ",style: const TextStyle(fontWeight: FontWeight.bold,fontSize: xLargeTitleFontSize),)),
                 ],
               ),
             ),
@@ -47,7 +49,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
             MyButtom(text: "Done", onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) =>  OrderReviewPage(totalPrice: totalPrice,)),
+                MaterialPageRoute(builder: (context) =>  OrderReviewPage(totalPrice: totalPrice.value,)),
               );
             }, color: primaryColor, height: heightScreen*0.07, width: widthScreen*0.8),
             Spacer(),

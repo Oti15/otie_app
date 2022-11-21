@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:otie_app/data/data_home_cleaning.dart';
 
 import '../utils/constants.dart';
+import '../view/create_order_page/total_price.dart';
 import 'incr_dec_buttom.dart';
 
 class CardItem extends StatefulWidget {
@@ -70,9 +72,8 @@ class _CardItemState extends State<CardItem> {
             onTap: () {
               if (count != 0) {
                 count--;
-                subTotalPrice =1;
-                subTotalPrice = int.parse(widget.price) * count;
-                print (subTotalPrice);
+                totalPrice.value =totalPrice.value-(int.parse(widget.price));
+                print(totalPrice);
               }
               setState(() {});
             },
@@ -88,9 +89,8 @@ class _CardItemState extends State<CardItem> {
             icon: 'assets/icons/plus.svg',
             onTap: () {
               count++;
-              subTotalPrice =1;
-              subTotalPrice = int.parse(widget.price) * count;
-              print (subTotalPrice);
+              totalPrice.value =totalPrice.value+(int.parse(widget.price));
+              print(totalPrice);
               setState(() {});
             },
           ),
