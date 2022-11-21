@@ -26,9 +26,9 @@ class _HomeCleningp1State extends State<HomeCleningp1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
+              const Padding(
                 padding:
-                EdgeInsets.only(left: 20, top: 10),
+                EdgeInsets.only(left: 24, top: 0,bottom: 8),
                 child: Text("Level  of Service",
                   style: TextStyle(
                       fontSize: xLargeTitleFontSize,

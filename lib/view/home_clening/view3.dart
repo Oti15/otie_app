@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/home_clening/view4.dart';
 import 'package:otie_app/view/home_clening/widgets/check2.dart';
 
@@ -24,7 +26,7 @@ class _HomeCleningp3State extends State<HomeCleningp3> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 20, top: 10),
             child: Text(
               "How many hours"
@@ -38,25 +40,23 @@ class _HomeCleningp3State extends State<HomeCleningp3> {
           ),
           Expanded(
             flex: cleanerNum.length+2,
-            child: Container(
-              child: ListView.builder(
-                  shrinkWrap: false,
-                  physics: NeverScrollableScrollPhysics(),
-                  itemCount: hours.length,
-                  itemBuilder: (BuildContext context, int index) {
-                    return check2(
-                      hours: hours[index],
-                      value: valueP2[index],
-                      onChanged: (value) {
-                        setState(() {
-                          choose = "$value";
-                          print("${value}");
-                        });
-                      },
-                      groupValue: choose,
-                    );
-                  }),
-            ),
+            child: ListView.builder(
+                shrinkWrap: false,
+                physics: const NeverScrollableScrollPhysics(),
+                itemCount: hours.length,
+                itemBuilder: (BuildContext context, int index) {
+                  return check2(
+                    hours: hours[index],
+                    value: valueP2[index],
+                    onChanged: (value) {
+                      setState(() {
+                        choose = "$value";
+                        print("${value}");
+                      });
+                    },
+                    groupValue: choose,
+                  );
+                }),
           ),
           Padding(
             padding: const EdgeInsets.only(bottom: 25),
@@ -88,14 +88,13 @@ class _HomeCleningp3State extends State<HomeCleningp3> {
               width: MediaQuery.of(context).size.width * 0.8,
               color: primaryColor,
               onPressed: () {
-                Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomeCleningp4()),
-                );
+                Get.to(HomeCleningp4());
               },
             ),
           ),
-          SizedBox(height: 30,)
+          SizedBox(
+            height: MediaQuery.of(context).size.height*0.05,
+          ),
         ],
       ),
     );

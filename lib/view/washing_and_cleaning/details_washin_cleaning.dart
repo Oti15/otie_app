@@ -106,9 +106,9 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
                 color: primaryColor,
                 height: MediaQuery.of(context).size.height * 0.07,
                 width: MediaQuery.of(context).size.width * 0.8),
-            SizedBox(
-              height: 16,
-            ),
+          SizedBox(
+            height: MediaQuery.of(context).size.height *0.05,
+          ),
           ],
         ),
       ),

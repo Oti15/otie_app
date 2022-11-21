@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/utils/constants.dart';
 
 class catogary extends StatelessWidget {
@@ -40,10 +42,7 @@ class catogary extends StatelessWidget {
               ),
               child: InkWell(
                 onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => detailsPage),
-                  );
+                  Get.to(detailsPage);
                    },
                 child: Row(
                   children: [

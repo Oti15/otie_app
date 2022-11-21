@@ -3,6 +3,8 @@ import 'package:otie_app/utils/constants.dart';
 import 'package:otie_app/view/home_page/page_view/page_view_main.dart';
 import 'package:otie_app/view/home_page/widgets/home_page_app_bar.dart';
 import '../create_order_page/create_order_page.dart';
+import '../home_clening/view1.dart';
+import '../washing_and_cleaning/washing_and_cleaning.dart';
 import 'widgets/catogary.dart';
 import 'widgets/services.dart';
 
@@ -67,7 +69,7 @@ class _HomePageState extends State<HomePage> {
                           x: false,
                           name: 'Home \nCleaning',
                           image: 'assets/images/home_cleaning.png',
-                          detailsPage: CreateOrderPage(),
+                          detailsPage: HomeCleningp1(),
                         ),
                         const SizedBox(
                           width: 10,
@@ -84,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                       x: true,
                       name: 'Washing and cleaning',
                       image: 'assets/images/washing_and_cleaning.png',
-                     detailsPage: CreateOrderPage(),
+                     detailsPage: WashingCLeaning(),
                     )
                   ],
                 ),

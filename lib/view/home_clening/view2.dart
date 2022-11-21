@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/home_clening/view3.dart';
 
 import '../../data/data_home_cleaning.dart';
@@ -24,7 +26,7 @@ class _HomeCleningp2State extends State<HomeCleningp2> {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.only(left: 20, top: 10),
               child: Text(
                 "How many cleaning \n"
@@ -38,26 +40,24 @@ class _HomeCleningp2State extends State<HomeCleningp2> {
             ),
             Expanded(
               flex: cleanerNum.length+2,
-              child: Container(
-                child: ListView.builder(
-                    shrinkWrap: false,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: cleanerNum.length,
-                    itemBuilder: (BuildContext context, int index) {
-                      return MyRadioListTile(
-                        cleanerNum: cleanerNum[index],
-                        price: price[index],
-                        value: value[index],
-                        onChanged: (value) {
-                          setState(() {
-                            choose = "$value";
-                            print("${value}");
-                          });
-                        },
-                        groupValue: choose,
-                      );
-                    }),
-              ),
+              child: ListView.builder(
+                  shrinkWrap: false,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: cleanerNum.length,
+                  itemBuilder: (BuildContext context, int index) {
+                    return MyRadioListTile(
+                      cleanerNum: cleanerNum[index],
+                      price: price[index],
+                      value: value[index],
+                      onChanged: (value) {
+                        setState(() {
+                          choose = "$value";
+                          print("${value}");
+                        });
+                      },
+                      groupValue: choose,
+                    );
+                  }),
             ),
             Padding(
               padding: const EdgeInsets.only(bottom: 25),
@@ -89,14 +89,13 @@ class _HomeCleningp2State extends State<HomeCleningp2> {
                       width: MediaQuery.of(context).size.width * 0.8,
                       color: primaryColor,
                       onPressed: () {
-                        Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => HomeCleningp3()),
-                        );
+                        Get.to(HomeCleningp3());
                       },
                     ),
              ),
-            SizedBox(height: 30,)
+           SizedBox(
+             height: MediaQuery.of(context).size.height*0.05,
+           ),
           ],
         ),
     );

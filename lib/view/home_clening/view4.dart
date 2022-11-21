@@ -21,10 +21,10 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: MySimpleAppBar(title: 'Part time cleaner booking'),
-      body: ListView(
-        //crossAxisAlignment: CrossAxisAlignment.start,
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 20, top: 10),
             child: Text(
               "Do we need to bringcleaning\n"
@@ -56,10 +56,10 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
                 });
               },
               select: 'No'),
-          SizedBox(
+          const SizedBox(
             height: 50,
           ),
-          Padding(
+          const Padding(
             padding: EdgeInsets.only(left: 20, top: 10),
             child: Text(
               "Any notes to leave for the\n"
@@ -97,7 +97,7 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
 
             ),
           ),
-          SizedBox(height: 175,),
+          Spacer(),
           Padding(
             padding: const EdgeInsets.only(bottom: 25),
             child: Center(
@@ -136,8 +136,8 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
             ),
           ),
           SizedBox(
-            height: 30,
-          )
+            height: MediaQuery.of(context).size.height*0.05,
+          ),
         ],
       ),
     );
