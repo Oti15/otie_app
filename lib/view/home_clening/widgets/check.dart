@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants.dart';
@@ -30,7 +31,7 @@ class MyRadioListTile<T> extends StatelessWidget {
                 color: isSelected ? Color(0xFFF05A25) : Colors.grey[300]!),
           ),
           child: Padding(
-              padding: EdgeInsets.only(right: 0, top: 0),
+              padding: EdgeInsets.only(right: 8,left: 8, top: 0),
               child: InkWell(
                 highlightColor: Colors.white,
                 onTap: () => onChanged(value),
@@ -49,7 +50,7 @@ class MyRadioListTile<T> extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 0),
                             child: Text(
-                              "${cleanerNum} Cleaner",
+                              "${cleanerNum} ${tr("cleaner")}",
                               style: TextStyle(
                                 fontSize: largeTitleFontSize,
                                 fontWeight: FontWeight.bold,
@@ -61,7 +62,7 @@ class MyRadioListTile<T> extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 0),
                             child: Text(
-                              "from   ${price} IQD",
+                              "${"from".tr()}   ${price} IQD",
                               style: TextStyle(
                                   fontSize: largeTitleFontSize,
                                   fontWeight: FontWeight.bold,

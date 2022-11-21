@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
@@ -22,16 +23,15 @@ class _HomeCleningp2State extends State<HomeCleningp2> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MySimpleAppBar(title: 'Part time cleaner booking'),
+      appBar: MySimpleAppBar(title: tr('part_time_cleaner_booking')),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Padding(
-              padding: EdgeInsets.only(left: 20, top: 10),
+             Padding(
+              padding: const EdgeInsets.only(left: 20, right: 20, top: 10),
               child: Text(
-                "How many cleaning \n"
-                "Specialists do you need ?",
-                style: TextStyle(
+                tr("how_many_cleaning_specialists_do_you_need"),
+                style: const TextStyle(
                     fontSize: xLargeTitleFontSize,
                     fontWeight: FontWeight.bold,
                     fontFamily: 'Bold',
@@ -84,7 +84,7 @@ class _HomeCleningp2State extends State<HomeCleningp2> {
             ),
              Center(
                child: MyButtom(
-                      text: 'Next',
+                      text: tr('next'),
                       height: MediaQuery.of(context).size.height * 0.07,
                       width: MediaQuery.of(context).size.width * 0.8,
                       color: primaryColor,

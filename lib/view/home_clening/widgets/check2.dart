@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import '../../../utils/constants.dart';
@@ -36,7 +37,7 @@ class check2<T> extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  padding: EdgeInsets.only(right: 15),
+                  padding: EdgeInsets.only(right: 15,left: 15),
                   child: Row(
                     children: [
                       Column(
@@ -46,7 +47,7 @@ class check2<T> extends StatelessWidget {
                           Padding(
                             padding: EdgeInsets.only(left: 20, top: 0),
                             child: Text(
-                              "${hours} Hour",
+                              "${hours} ${"hour".tr()}",
                               style: TextStyle(
                                   fontSize: largeTitleFontSize,
                                   fontWeight: FontWeight.bold,

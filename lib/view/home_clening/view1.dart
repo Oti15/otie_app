@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:otie_app/utils/constants.dart';
 
@@ -17,7 +18,7 @@ class _HomeCleningp1State extends State<HomeCleningp1> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MySimpleAppBar(title: 'Part time cleaner booking'),
+      appBar: MySimpleAppBar(title: tr('part_time_cleaner_booking')),
       body: ListView(
         shrinkWrap: false,
         physics: NeverScrollableScrollPhysics(),
@@ -26,34 +27,31 @@ class _HomeCleningp1State extends State<HomeCleningp1> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisSize: MainAxisSize.max,
             children: [
-              const Padding(
-                padding:
-                EdgeInsets.only(left: 24, top: 0,bottom: 8),
-                child: Text("Level  of Service",
-                  style: TextStyle(
+               Padding(
+                padding: EdgeInsets.only(left: 24,right: 24, top: 0, bottom: 8),
+                child: Text(
+                  "Level_of_service".tr(),
+                  style: const TextStyle(
                       fontSize: xLargeTitleFontSize,
                       fontWeight: FontWeight.bold,
                       fontFamily: 'Bold',
-                      color: Colors.black
-                  ),),
+                      color: Colors.black),
+                ),
               ),
               Container(
-                height: MediaQuery.of(context).size.height-160,
+                height: MediaQuery.of(context).size.height - 160,
                 child: ListView.builder(
                     shrinkWrap: false,
                     //physics: NeverScrollableScrollPhysics(),
                     itemCount: levelName.length,
-                    itemBuilder: (BuildContext context, int index){
-                      return
-                          ServiceLevel(
-                            level: levelName[index],
-                            time: minTime[index],
-                            price: price1[index],
+                    itemBuilder: (BuildContext context, int index) {
+                      return ServiceLevel(
+                        level: levelName[index],
+                        time: minTime[index],
+                        price: price1[index],
                       );
-                    }
-                ),
+                    }),
               ),
-
             ],
           ),
         ],

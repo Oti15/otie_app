@@ -1,13 +1,15 @@
+import 'package:easy_localization/easy_localization.dart';
+
 List<String> levelName = [
-  'Bronze',
-  'Silver',
-  'Gold'
+  'bronze'.tr(),
+  'silver'.tr(),
+  'gold'.tr()
 ];
 
 List<String> minTime = [
-  '1 Hrs',
-  '2 Hrs',
-  '3 Hrs'
+  '1_hrs'.tr(),
+  '2_hrs'.tr(),
+  '3_hrs'.tr(),
 ];
 
 List<String> price1 = [

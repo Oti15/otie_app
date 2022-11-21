@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 
 import 'package:otie_app/utils/constants.dart';
@@ -33,21 +34,21 @@ class _BookingState extends State<Booking> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MySimpleAppBar(title: 'Booking'),
+      appBar: MySimpleAppBar(title: tr('booking')),
       backgroundColor: primaryBgColor,
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Padding(
-          padding: EdgeInsets.only(left: 20, top: 0),
+         Padding(
+          padding: const EdgeInsets.only(left: 20,right: 20, top: 0),
           child: Text(
-            "Select Date & Time",
-            style: TextStyle(
+            "select_date_time".tr(),
+            style: const TextStyle(
                 fontSize: xLargeTitleFontSize,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Bold',
                 color: Colors.black),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Row(
@@ -56,7 +57,7 @@ class _BookingState extends State<Booking> {
             RadioList(
               EX: true,
               show: true,
-              leading: 'Pickup',
+              leading: 'pickup'.tr(),
               value: 'Pickup',
               groupValue: selectedValue,
               onChanged: (value) {
@@ -70,13 +71,13 @@ class _BookingState extends State<Booking> {
               width: 175,
               border: 1,
             ),
-            SizedBox(
+            const SizedBox(
               width: 20,
             ),
             RadioList(
               EX: false,
               show: true,
-              leading: 'Delivery',
+              leading: 'delivery'.tr(),
               value: 'Delivery',
               groupValue: selectedValue,
               onChanged: (value) {
@@ -94,17 +95,17 @@ class _BookingState extends State<Booking> {
         ),
         // pickup date
         Padding(
-          padding: EdgeInsets.only(left: 20, top: 20),
+          padding: EdgeInsets.only(left: 20,right: 20, top: 20),
           child: Text(
-            "Pickup Date",
-            style: TextStyle(
+            "pickup_date".tr(),
+            style: const TextStyle(
                 fontSize: primaryFontSize,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Bold',
                 color: Colors.black),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
 
@@ -121,33 +122,33 @@ class _BookingState extends State<Booking> {
                 .toList(),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 0,
         ),
 
         Padding(
-          padding: EdgeInsets.only(left: 20, top: 20),
+          padding: EdgeInsets.only(left: 20,right: 20, top: 20),
           child: Text(
-            "Pickup Time",
-            style: TextStyle(
+            "pickup_time".tr(),
+            style: const TextStyle(
                 fontSize: primaryFontSize,
                 fontWeight: FontWeight.bold,
                 fontFamily: 'Bold',
                 color: Colors.black),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 15,
         ),
         Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
               padding: const EdgeInsets.only(left: 20.0),
               child: RadioList(
                   EX: false,
                   show: false,
-                  leading: 'Morning',
+                  leading: 'morning'.tr(),
                   value: 'Morning',
                   groupValue: choose,
                   onChanged: (value) {
@@ -162,11 +163,11 @@ class _BookingState extends State<Booking> {
                   border: 0),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 15.0),
+              padding: const EdgeInsets.only(left: 20.0),
               child: RadioList(
                   EX: false,
                   show: false,
-                  leading: 'Afternoon',
+                  leading: 'afternoon'.tr(),
                   value: 'Afternoon',
                   groupValue: choose,
                   onChanged: (value) {
@@ -177,15 +178,15 @@ class _BookingState extends State<Booking> {
                   },
                   height: 70,
                   radius: 15,
-                  width: 100,
+                  width: 120,
                   border: 0),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 15.0),
+              padding: const EdgeInsets.only(left: 20.0),
               child: RadioList(
                 EX: false,
                 show: false,
-                leading: 'Evening',
+                leading: 'evening'.tr(),
                 value: 'Evening',
                 groupValue: choose,
                 onChanged: (value) {
@@ -202,16 +203,16 @@ class _BookingState extends State<Booking> {
             ),
           ],
         ),
-        SizedBox(
+        const SizedBox(
           height: 25,
         ),
         if (choose == 'Morning')
-          ShowTime(time: 'morning',)
+          const ShowTime(time: 'morning',)
         else if (choose == 'Afternoon')
-          ShowTime(time: 'afternoon',)
+          const ShowTime(time: 'afternoon',)
         else if (choose == 'Evening')
-        ShowTime(time: 'evening',),
-        SizedBox(
+        const ShowTime(time: 'evening',),
+        const SizedBox(
           height: 50,
         ),
         Expanded(
@@ -222,7 +223,7 @@ class _BookingState extends State<Booking> {
               children: [
                 delivery(
                   value: 'Regular Delivery',
-                  leading: 'Regular Delivery',
+                  leading: 'regular_delivery'.tr(),
                   groupValue: Delivery,
                   onChanged: (value) {
                     setState(() {
@@ -233,7 +234,7 @@ class _BookingState extends State<Booking> {
                 ),
                 delivery(
                   value: 'Express Delivery',
-                  leading: 'Express Delivery',
+                  leading: 'express_delivery'.tr(),
                   groupValue: Delivery,
                   onChanged: (value) {
                     setState(() {
@@ -250,7 +251,7 @@ class _BookingState extends State<Booking> {
           child: Align(
             alignment: Alignment.bottomCenter,
             child: MyButtom(
-              text: 'Next',
+              text: 'next'.tr(),
               onPressed: () {
                 // Navigator.push(
                 //   context,
@@ -263,7 +264,7 @@ class _BookingState extends State<Booking> {
             ),
           ),
         ),
-        SizedBox(
+        const SizedBox(
           height: 30,
         )
       ]),

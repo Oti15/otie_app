@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/state_manager.dart';
@@ -13,13 +14,15 @@ class CardItem extends StatefulWidget {
     required this.icon,
     required this.title,
     required this.price,
-    this.meter
-  }) : super(key: key);
+    this.meter,
+    this.hasMeter=false
+  }) : super(key: key, );
 
   final String icon;
   final String title;
   final String price;
   final String? meter;
+  final bool hasMeter ;
 
   @override
   State<CardItem> createState() => _CardItemState();
@@ -59,9 +62,12 @@ class _CardItemState extends State<CardItem> {
                 widget.title,
                 style: const TextStyle(
                     fontWeight: FontWeight.w500, fontSize: primaryFontSize),
-              ),
+              ),widget.hasMeter?
               Text(
-                "${widget.price} IQD ${widget.meter}",
+                "${widget.price} ${tr("currency")} ${widget.meter}",
+                style: const TextStyle(
+                    fontWeight: FontWeight.normal, fontSize: smallFontSize),
+              ): Text("${widget.price} ${tr("currency")}",
                 style: const TextStyle(
                     fontWeight: FontWeight.normal, fontSize: smallFontSize),
               ),
@@ -74,6 +80,7 @@ class _CardItemState extends State<CardItem> {
               if (count.value != 0) {
                 count.value--;
                 totalPrice.value =totalPrice.value-(int.parse(widget.price));
+                totalItem.value -= 1;
                 print(totalPrice.value);
               }
             },
@@ -90,6 +97,7 @@ class _CardItemState extends State<CardItem> {
             onTap: () {
               count.value++;
               totalPrice.value =totalPrice.value+(int.parse(widget.price));
+              totalItem.value += 1;
               print(totalPrice.value);
             },
           ),

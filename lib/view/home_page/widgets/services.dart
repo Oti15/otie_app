@@ -31,7 +31,7 @@ child: Stack(
             ),
             child: Padding(
               padding:
-              EdgeInsets.only(left: 15,top: 18),
+              EdgeInsets.only(left: 15,right:15,top: 18),
               child: Text(name,
                 style: const TextStyle(
                     fontSize: 28,

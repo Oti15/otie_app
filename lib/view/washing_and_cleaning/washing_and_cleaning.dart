@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:otie_app/view/washing_and_cleaning/widgets/card_of_washing_and_cleaning.dart';
@@ -20,7 +21,7 @@ class _WashingCLeaningState extends State<WashingCLeaning> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryBgColor,
-      appBar: MySimpleAppBar(title: 'Washing and cleaning'),
+      appBar: MySimpleAppBar(title: tr('washing_and_cleaning')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -29,7 +30,7 @@ class _WashingCLeaningState extends State<WashingCLeaning> {
             Padding(
               padding: EdgeInsets.only(left: 8, top: 16),
               child: Text(
-                "Home cleaning",
+                "home_cleaning".tr(),
                 style: titleTextStyle(),
               ),
             ),

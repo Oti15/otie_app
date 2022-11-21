@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
@@ -31,7 +32,7 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: primaryBgColor,
-      appBar: MySimpleAppBar(title: 'Washing and cleaning'),
+      appBar: MySimpleAppBar(title: tr('washing_and_cleaning')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0),
         child: Column(
@@ -56,9 +57,9 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
                     padding: const EdgeInsets.only(top: 16.0, left: 8),
                     child: Row(
                       children: [
-                        const Text(
-                          "Mensuration",
-                          style: TextStyle(
+                         Text(
+                          "mensuration".tr(),
+                          style: const TextStyle(
                             fontWeight: FontWeight.bold,
                           ),
                         ),
@@ -87,14 +88,14 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children:  [
-                  const Text(
-                    "Total Price:",
-                    style: TextStyle(
+                   Text(
+                    "total_price".tr(),
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: xLargeTitleFontSize),
                   ),
                   Obx (()=>Text(
-                    "${totalPrice.value}",
+                    "${totalPrice.value} ${tr("currency")} ",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: xLargeTitleFontSize),
@@ -103,7 +104,7 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
               ),
             ),
             MyButtom(
-                text: "add to cart",
+                text: "add_to_cart".tr(),
                 onPressed: () {},
                 color: primaryColor,
                 height: MediaQuery.of(context).size.height * 0.07,

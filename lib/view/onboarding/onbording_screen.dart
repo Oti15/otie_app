@@ -52,10 +52,13 @@ class _OnbordingState extends State<Onbording> {
                         contents[i].image,
                         height: 300,
                       ),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.07,
+                      ),
                       GradientText(
                         contents[i].title,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 32,
 
                         ),
@@ -68,11 +71,13 @@ class _OnbordingState extends State<Onbording> {
                         ],
                       ),
 
-                      SizedBox(height: 20),
+                      SizedBox(
+                        height: MediaQuery.of(context).size.height * 0.03,
+                      ),
                       Text(
                         contents[i].discription,
                         textAlign: TextAlign.center,
-                        style: TextStyle(
+                        style: const TextStyle(
                           fontSize: 24,
                           color: Colors.grey,
                         ),
@@ -94,7 +99,9 @@ class _OnbordingState extends State<Onbording> {
             ),
           ),
           ButtomOnBording(currentIndex: currentIndex, controller: _controller),
-          SizedBox(height: 20,),
+          SizedBox(
+            height: MediaQuery.of(context).size.height * 0.05,
+          ),
         ],
       ),
     );

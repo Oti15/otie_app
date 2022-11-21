@@ -1,7 +1,12 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/order_review/widgets/card_order_review.dart';
 import '../../utils/constants.dart';
+import '../../utils/total_price.dart';
+import '../booking/view.dart';
 import '../create_order_page/list_item_catogary.dart';
 import '../widgets/my_buttom.dart';
 import '../widgets/my_simple_app_bar.dart';
@@ -24,26 +29,26 @@ class _OrderReviewPageState extends State<OrderReviewPage> {
     int totalPrice = 0;
     return Scaffold(
       backgroundColor: primaryBgColor,
-      appBar: MySimpleAppBar(title: 'Order Review'),
+      appBar: MySimpleAppBar(title: tr('order_review')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
             const ListItemReview(),
-            const Align(
+             Align(
               alignment: Alignment.centerLeft,
-              child: Text(
-                "Subtotal (5 item) :",
-                style: TextStyle(
+              child:Obx(()=> Text(
+                "${tr("subtotal")} (${totalItem} ${tr("items")})",
+                style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: primaryFontSize,
                 ),
-              ),
+              )),
             ),
             const Spacer(),
             const Spacer(),
             Text(
-              "${widget.totalPrice} IDQ",
+              "${widget.totalPrice} ${tr("currency")}",
               style: const TextStyle(
                   fontWeight: FontWeight.bold,
                   fontSize: xLargeTitleFontSize,
@@ -51,8 +56,10 @@ class _OrderReviewPageState extends State<OrderReviewPage> {
             ),
             const Spacer(),
             MyButtom(
-              text: "Booking Now",
-              onPressed: () {},
+              text: tr("booking_now"),
+              onPressed: () {
+                Get.to(Booking());
+              },
               color: primaryColor,
               height: heightScreen * 0.07,
               width: widthScreen * 0.8,

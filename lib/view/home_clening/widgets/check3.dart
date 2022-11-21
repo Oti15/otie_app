@@ -36,7 +36,7 @@ class check3<T> extends StatelessWidget {
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(15),
                   ),
-                  padding: EdgeInsets.only(right: 15),
+                  padding: EdgeInsets.only(right: 15,left: 15),
                   child: Row(
                     children: [
                       Column(
@@ -70,7 +70,7 @@ class check3<T> extends StatelessWidget {
     return Container(
         height: 22,
         width: 22,
-        padding: EdgeInsets.symmetric(horizontal: 0, vertical: 0),
+
         decoration: BoxDecoration(
           color: isSelected ? Color(0xFFF05A25) : null,
           borderRadius: BorderRadius.circular(13.5),

@@ -41,6 +41,8 @@ dependencies:
   smooth_page_indicator: ^1.0.0+2
   calender_picker: ^1.0.7
   get: ^4.6.5
+  easy_localization: ^3.0.1
+  shared_preferences: ^2.0.15
 
 dev_dependencies:
   flutter_test:
@@ -68,6 +70,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/translations/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

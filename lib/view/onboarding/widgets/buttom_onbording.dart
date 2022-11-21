@@ -1,7 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../../home/home_screen.dart';
+import '../../auth/sign_up.dart';
+import '../../home_page/home_page.dart';
 import '../UnbordingContent.dart';
 
 class ButtomOnBording extends StatelessWidget {
@@ -20,8 +21,6 @@ class ButtomOnBording extends StatelessWidget {
       width: 335,
       height: 50,
       child: ElevatedButton(
-        child: Text(
-            currentIndex == contents.length - 1 ? "Continue" : "Next"),
         style: ElevatedButton.styleFrom(
             primary: Color(0XFFF05A25),
             shape: StadiumBorder()
@@ -31,15 +30,17 @@ class ButtomOnBording extends StatelessWidget {
             Navigator.pushReplacement(
               context,
               MaterialPageRoute(
-                builder: (_) => HomeScreen(),
+                builder: (_) => const SignUp(),
               ),
             );
           }
           _controller.nextPage(
-            duration: Duration(milliseconds: 300),
+            duration: const Duration(milliseconds: 300),
             curve: Curves.bounceIn,
           );
         },
+        child: Text(
+            currentIndex == contents.length - 1 ? "continue".tr() : "next".tr()),
       ),
     );
   }

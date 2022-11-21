@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:otie_app/utils/constants.dart';
 import 'package:otie_app/view/home_page/page_view/page_view_main.dart';
@@ -23,7 +24,7 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  List<String> names = ["Bronze", "Silever", "Gold"];
+  List<String> names = ["bronze".tr(), "silver".tr(), "gold".tr()];
 
   @override
   Widget build(BuildContext context) {
@@ -35,11 +36,11 @@ class _HomePageState extends State<HomePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, top: 10, bottom: 5),
+                 Padding(
+                  padding: EdgeInsets.only(left: 20, right: 20,top: 10, bottom: 5),
                   child: Text(
-                    "OTIE Promo’s",
-                    style: TextStyle(
+                    "OTIEـPromos".tr(),
+                    style: const TextStyle(
                         fontSize: largeTitleFontSize,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Bold',
@@ -49,11 +50,11 @@ class _HomePageState extends State<HomePage> {
                 MyPageView(
                   pageCount: 3,
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 20, top: 25),
+                 Padding(
+                  padding: EdgeInsets.only(left: 20,right: 20, top: 25),
                   child: Text(
-                    "Select servies",
-                    style: TextStyle(
+                    "select_servies".tr(),
+                    style: const TextStyle(
                         fontSize: largeTitleFontSize,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Bold',
@@ -67,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         catogary(
                           x: false,
-                          name: 'Home \nCleaning',
+                          name: 'homeـcleaning'.tr(),
                           image: 'assets/images/home_cleaning.png',
                           detailsPage: HomeCleningp1(),
                         ),
@@ -76,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         catogary(
                           x: false,
-                          name: 'Laundry',
+                          name: 'laundry'.tr(),
                           image: 'assets/images/laundry.png',
                           detailsPage: CreateOrderPage(),
                         )
@@ -84,17 +85,17 @@ class _HomePageState extends State<HomePage> {
                     ),
                    catogary(
                       x: true,
-                      name: 'Washing and cleaning',
+                      name: 'washing_and_cleaning'.tr(),
                       image: 'assets/images/washing_and_cleaning.png',
                      detailsPage: WashingCLeaning(),
                     )
                   ],
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 25, top: 25),
+                 Padding(
+                  padding: const EdgeInsets.only(left: 25,right: 20, top: 25),
                   child: Text(
-                    "Home cleaning services",
-                    style: TextStyle(
+                    "home_cleaning_services".tr(),
+                    style: const TextStyle(
                         fontSize: largeTitleFontSize,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Bold',
@@ -102,6 +103,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ),
                 Container(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
                   height: 200,
                   child: ListView.builder(
                       scrollDirection: Axis.horizontal,

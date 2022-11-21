@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -28,7 +29,7 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
 
     return Scaffold(
       backgroundColor: primaryBgColor,
-      appBar: MySimpleAppBar(title: 'Creat Order'),
+      appBar: MySimpleAppBar(title: tr('creatـorder')),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
@@ -44,14 +45,13 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const Text(
-                    "Total Price:",
-                    style: TextStyle(
+                   Text(tr("total_price"),
+                    style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: xLargeTitleFontSize),
                   ),
                   Obx(() => Text(
-                        "${totalPrice.value} IDQ",
+                        "${totalPrice.value} ${tr("currency")} ",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: xLargeTitleFontSize),
@@ -61,11 +61,18 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
             ),
             Spacer(),
             MyButtom(
-                text: "add to cart",
+                text: tr("add_to_cart"),
                 onPressed: () {
+                  if (totalPrice.value != null && totalPrice.value !=0 ){
                   Get.to(OrderReviewPage(
                     totalPrice: totalPrice.value,
-                  ));
+                  ));}else{
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(tr("snackbar_select_item")),
+                      ),
+                    );
+                  }
                 },
                 color: primaryColor,
                 height: heightScreen * 0.07,

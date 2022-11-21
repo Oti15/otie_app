@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:otie_app/view/home_clening/widgets/check3.dart';
 
@@ -20,16 +21,15 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      appBar: MySimpleAppBar(title: 'Part time cleaner booking'),
+      appBar: MySimpleAppBar(title: tr('part_time_cleaner_booking')),
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 10),
+           Padding(
+            padding: const EdgeInsets.only(left: 20,right: 20, top: 10),
             child: Text(
-              "Do we need to bringcleaning\n"
-              "products?",
-              style: TextStyle(
+             tr("do_we_need_to_bringcleaning_products"),
+              style: const TextStyle(
                   fontSize: xLargeTitleFontSize,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Bold',
@@ -45,7 +45,7 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
                   print("${value}");
                 });
               },
-              select: 'Yes (25,000 IQD)'),
+              select: '${tr("yes")} (25,000 IQD)'),
           check3(
               value: '0 IQD',
               groupValue: choose,
@@ -55,16 +55,15 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
                   print("${value}");
                 });
               },
-              select: 'No'),
+              select: tr("no")),
           const SizedBox(
             height: 50,
           ),
-          const Padding(
-            padding: EdgeInsets.only(left: 20, top: 10),
+           Padding(
+            padding: const EdgeInsets.only(left: 20,right: 20, top: 10),
             child: Text(
-              "Any notes to leave for the\n"
-              "specialist?",
-              style: TextStyle(
+             "any_notes_to_leave_for_the_specialist".tr(),
+              style: const TextStyle(
                   fontSize: xLargeTitleFontSize,
                   fontWeight: FontWeight.bold,
                   fontFamily: 'Bold',
@@ -90,7 +89,7 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
                         ),
                         filled: true,
                         fillColor: Colors.white,
-                        hintText: " Leave notes ...",
+                        hintText: "leave_notes".tr(),
                         hintStyle: TextStyle(color: Colors.grey)),
                   ),
                 ),
@@ -123,7 +122,7 @@ class _HomeCleningp4State extends State<HomeCleningp4> {
           ),
           Center(
             child: MyButtom(
-              text: 'Next',
+              text: 'next'.tr(),
               height: MediaQuery.of(context).size.height * 0.07,
               width: MediaQuery.of(context).size.width * 0.8,
               color: primaryColor,
