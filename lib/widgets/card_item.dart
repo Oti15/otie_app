@@ -1,9 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/state_manager.dart';
 import 'package:otie_app/data/data_home_cleaning.dart';
 
 import '../utils/constants.dart';
-import '../view/create_order_page/total_price.dart';
+import '../utils/total_price.dart';
 import 'incr_dec_buttom.dart';
 
 class CardItem extends StatefulWidget {
@@ -25,7 +26,7 @@ class CardItem extends StatefulWidget {
 }
 
 class _CardItemState extends State<CardItem> {
-  int count = 0;
+  RxInt count = 0.obs;
   int subTotalPrice=0;
 
   @override
@@ -70,28 +71,26 @@ class _CardItemState extends State<CardItem> {
           IncDecButtom(
             icon: 'assets/icons/minus.svg',
             onTap: () {
-              if (count != 0) {
-                count--;
+              if (count.value != 0) {
+                count.value--;
                 totalPrice.value =totalPrice.value-(int.parse(widget.price));
-                print(totalPrice);
+                print(totalPrice.value);
               }
-              setState(() {});
             },
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            child: Text(
-              "$count",
+            child:Obx (()=> Text(
+              "${count.value}",
               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
-            ),
+            )),
           ),
           IncDecButtom(
             icon: 'assets/icons/plus.svg',
             onTap: () {
-              count++;
+              count.value++;
               totalPrice.value =totalPrice.value+(int.parse(widget.price));
-              print(totalPrice);
-              setState(() {});
+              print(totalPrice.value);
             },
           ),
 

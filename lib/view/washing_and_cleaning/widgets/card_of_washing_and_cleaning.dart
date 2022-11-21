@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/utils/constants.dart';
 
 class CardWashingCleaning extends StatelessWidget {
@@ -30,10 +31,7 @@ class CardWashingCleaning extends StatelessWidget {
       ),
       child: InkWell(
         onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => detailsPage),
-          );
+          Get.to(detailsPage);
         },
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 8.0),

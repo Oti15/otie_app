@@ -17,18 +17,18 @@ List<CardHomeCleaningModel> ListCardHomeCleaning = [
   CardHomeCleaningModel(
     title: 'Carpet',
     icon: 'assets/icons/carpet.png',
-    price: '2,000',
+    price: '2000',
     showDropDown: true,
   ),
   CardHomeCleaningModel(
       title: 'Furniture',
       icon: 'assets/icons/furniture.png',
-      price: '2,000',
+      price: '2000',
       showDropDown: false),
   CardHomeCleaningModel(
     title: 'Curtains',
     icon: 'assets/icons/curtains.png',
-    price: '2,000',
+    price: '2000',
     showDropDown: true,
   ),
 ];

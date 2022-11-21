@@ -54,7 +54,7 @@ class _WashingCLeaningState extends State<WashingCLeaning> {
                   detailsPage: DetailsWashinCleaning(
                     icon: ListCardHomeCleaning[index].icon,
                     title: ListCardHomeCleaning[index].title,
-                    price: ListCardHomeCleaning[index].title,
+                    price: ListCardHomeCleaning[index].price,
                     showDropDown: ListCardHomeCleaning[index].showDropDown,
                   ),
                 ),
