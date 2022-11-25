@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/auth/widgets/my_text_field.dart';
 import 'package:otie_app/view/home_page/home_page.dart';
-
+import '../../services/api_services.dart';
 import '../../utils/constants.dart';
 import '../../utils/total_price.dart';
 import '../order_review/order_review.dart';
 import '../widgets/my_buttom.dart';
 import 'sign_in.dart';
 import 'package:easy_localization/easy_localization.dart';
-
+import 'package:http/http.dart' as http;
 
 TextEditingController username = TextEditingController();
 TextEditingController location = TextEditingController();
@@ -51,11 +51,11 @@ class _SignUpState extends State<SignUp> {
                 ),
               ),
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.only(top: 75),
               child: Align(
                 alignment: Alignment.center,
-                child:  Text(
+                child: Text(
                   tr("sign_up"),
                   style: const TextStyle(
                       color: Colors.black,
@@ -64,7 +64,7 @@ class _SignUpState extends State<SignUp> {
                 ).tr(),
               ),
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.only(top: 10, bottom: 40),
               child: Align(
                 alignment: Alignment.center,
@@ -113,9 +113,9 @@ class _SignUpState extends State<SignUp> {
             MyButtom(
                 text: tr("sign_up"),
                 onPressed: () {
-                  signUp();
-                  Get.to(HomePage());
-                  newUser=false;
+                  signUp(username: username, password: password, location: location, phone_num: phone_num);
+                  //Get.to(HomePage());
+                  newUser = false;
                 },
                 color: primaryColor,
                 height: heightScreen * 0.07,
@@ -128,7 +128,7 @@ class _SignUpState extends State<SignUp> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       Text(
+                      Text(
                         tr("already_have_account"),
                         style: const TextStyle(
                           color: Colors.black,
@@ -137,10 +137,9 @@ class _SignUpState extends State<SignUp> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => signin()));
+                          Get.to(signin());
                         },
-                        child:  Text(
+                        child: Text(
                           tr("sign_in"),
                           style: const TextStyle(
                             color: Colors.deepOrange,
@@ -160,5 +159,5 @@ class _SignUpState extends State<SignUp> {
     );
   }
 
-  void signUp() {}
+
 }

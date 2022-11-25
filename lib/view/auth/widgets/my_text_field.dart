@@ -30,7 +30,7 @@ class MyTestField extends StatelessWidget {
           child: Container(
             height: height,
             width: width,
-            color: Colors.grey.withOpacity(0.5),
+            color: Colors.grey.withOpacity(0.16),
             child: Center(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,

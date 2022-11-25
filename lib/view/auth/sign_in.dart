@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/auth/widgets/my_text_field.dart';
+import '../../services/api_services.dart';
 import '../../utils/constants.dart';
 import '../../utils/total_price.dart';
 import '../home_page/home_page.dart';
@@ -91,8 +92,8 @@ class _signinState extends State<signin> {
             MyButtom(
                 text: tr("sign_in"),
                 onPressed: () {
-                  signIp();
-                  Get.to(HomePage());
+                  signIn(phone_num:phone_num, password: password);
+                  //Get.to(HomePage());
                   newUser=false;
                 },
                 color: primaryColor,
@@ -138,5 +139,5 @@ class _signinState extends State<signin> {
     );
   }
 
-  void signIp() {}
+
 }
