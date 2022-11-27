@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/cupertino.dart';
+import 'package:get/get.dart';
 import 'package:otie_app/widgets/card_item.dart';
 import '../../model/cart_item_model.dart';
 import 'package:http/http.dart' as http;

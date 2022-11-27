@@ -1,4 +1,5 @@
 import 'package:easy_localization/easy_localization.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
 
 class CardItemModel{
   late final String icon;
@@ -10,7 +11,7 @@ class CardItemModel{
 
 }
 
-List<CardItemModel> CardItemList=[
+var  CardItemList=[
   CardItemModel(icon: 'assets/icons/Tshirt_icon.png', name: tr('T_shirt'), price: '2000', des: 'late_final_string_price'.tr()),
   CardItemModel(icon: 'assets/icons/jacket_icon.png', name: 'jacket'.tr(), price: '2000', des: 'late_final_string_price'.tr()),
   CardItemModel(icon: 'assets/icons/jeans_icon.png', name: 'jeans'.tr(), price: '2000', des: 'late_final_string_price'.tr()),

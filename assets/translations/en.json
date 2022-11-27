@@ -78,6 +78,12 @@
   "yes": "Yes",
   "no": "No",
   "any_notes_to_leave_for_the_specialist": "Any notes to leave for the\nspecialist?",
-  "leave_notes": " Leave notes ..."
+  "leave_notes": " Leave notes ...",
+  "please_waite": "Please Waite...",
+  "user_registration": "User Registration",
+  "user_registered_successfully": "User Registered Successfully",
+  "error": "Error",
+  "please_enter_correct_information": "Please Enter Correct Information",
+"sign_in_successfully": "Sign In Successfully"
 
 }

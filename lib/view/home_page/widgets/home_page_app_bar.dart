@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/constants.dart';
+import '../../profile/view1.dart';
 
 AppBar HomePageAppBar() {
   return AppBar(
@@ -18,7 +21,7 @@ AppBar HomePageAppBar() {
               color: Colors.black,
             ),
             onPressed: () {
-              //Navegate to notification page
+
             },
           );
         },
@@ -37,8 +40,7 @@ AppBar HomePageAppBar() {
             color: Colors.black,
           ),
           onPressed: () {
-            //Navegate to profile page
-          },
+            Get.to(const profile());          },
         );
       },
     ),

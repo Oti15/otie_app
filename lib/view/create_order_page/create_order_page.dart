@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,11 +10,13 @@ import 'package:otie_app/utils/total_price.dart';
 import 'package:otie_app/widgets/card_item.dart';
 
 import '../../model/cart_item_model.dart';
+import '../../services/api_services.dart';
 import '../../utils/constants.dart';
 import '../order_review/order_review.dart';
 import '../widgets/my_buttom.dart';
 import '../widgets/my_simple_app_bar.dart';
 import 'list_item_catogary.dart';
+import 'package:http/http.dart' as http;
 
 class CreateOrderPage extends StatefulWidget {
   const CreateOrderPage({Key? key}) : super(key: key);
@@ -22,6 +26,34 @@ class CreateOrderPage extends StatefulWidget {
 }
 
 class _CreateOrderPageState extends State<CreateOrderPage> {
+
+  // Future getItems() async {
+  //   var url = Uri.parse("https://otie-app.herokuapp.com/items?section=laundry");
+  //   var response = await http.get(url);
+  //   Map<String, dynamic> map = json.decode(response.body);
+  //   List list1 =  map.values.toList();
+  //   CardItemList.clear();
+  //   for (int i = 0; i < list1.length; i++) {
+  //     for (int j=0 ; j< list1.length ; j++){
+  //       setState(() {
+  //         CardItemList.add(CardItemModel(icon: list1[i][j]['imageUrl'], name: list1[i][j]['nameEN'], price: list1[i][j]['price'], des:tr('late_final_string_price')) );
+  //
+  //       });
+  //       print(list1[i][j]['imageUrl']);
+  //       print("======================");
+  //      // print(list1[j]);
+  //
+  //     }}
+  //  // print(list1);
+  //   print(CardItemList.length);
+  // }
+
+  @override
+  void initState() {
+
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     double heightScreen = MediaQuery.of(context).size.height;
@@ -34,6 +66,9 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
+            TextButton(onPressed: (){
+              //getItems();
+            }, child: Text("GetData",)),
             ItemCatogaryList(),
             Spacer(),
             Spacer(),

@@ -78,8 +78,12 @@
   "yes": "نعم",
   "no": "لا",
   "any_notes_to_leave_for_the_specialist": "أي ملاحظات لتركها لـ\nمتخصص؟",
-  "leave_notes": " اترك ملاحظات ..."
-
+  "leave_notes": " اترك ملاحظات ...",
+  "please_waite": "يرجى الانتضار...",
+  "user_registration": "تسجيل المستخدم",
+  "user_registered_successfully": "تم تسجيل المستخدم بنجاح",
+  "error": "خطأ",
+  "please_enter_correct_information": "الرجاء إدخال المعلومات الصحيحة"
 
 
 

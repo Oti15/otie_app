@@ -3,7 +3,10 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/auth/widgets/my_text_field.dart';
 import 'package:otie_app/view/home_page/home_page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../services/api_services.dart';
+import '../../services/is_waiting_buttom.dart';
+import '../../services/update_seen_onbording_prefs.dart';
 import '../../utils/constants.dart';
 import '../../utils/total_price.dart';
 import '../order_review/order_review.dart';
@@ -110,16 +113,23 @@ class _SignUpState extends State<SignUp> {
               textInputType: TextInputType.visiblePassword,
             ),
             Spacer(),
-            MyButtom(
-                text: tr("sign_up"),
-                onPressed: () {
-                  signUp(username: username, password: password, location: location, phone_num: phone_num);
-                  //Get.to(HomePage());
-                  newUser = false;
-                },
-                color: primaryColor,
-                height: heightScreen * 0.07,
-                width: widthScreen * 0.8),
+            Obx(
+              () => MyButtom(
+                  text: isWaite.value ? tr("please_waite") : tr("sign_up"),
+                  onPressed: () {
+                    isWaite.value = true;
+                    signUp(
+                      username: username,
+                      password: password,
+                      location: location,
+                      phone_num: phone_num,
+                    );
+                    updateSeen();
+                  },
+                  color: isWaite.value ? Colors.grey : primaryColor,
+                  height: heightScreen * 0.07,
+                  width: widthScreen * 0.8),
+            ),
             Padding(
               padding: EdgeInsets.only(top: 24),
               child: Align(
@@ -158,6 +168,4 @@ class _SignUpState extends State<SignUp> {
       ),
     );
   }
-
-
 }

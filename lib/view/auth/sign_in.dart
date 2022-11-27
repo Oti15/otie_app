@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:otie_app/services/is_waiting_buttom.dart';
 import 'package:otie_app/view/auth/widgets/my_text_field.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import '../../services/api_services.dart';
+import '../../services/update_seen_onbording_prefs.dart';
 import '../../utils/constants.dart';
 import '../../utils/total_price.dart';
 import '../home_page/home_page.dart';
 import '../widgets/my_buttom.dart';
 import 'sign_up.dart';
 import 'package:easy_localization/easy_localization.dart';
-
 
 TextEditingController password = TextEditingController();
 TextEditingController phone_num = TextEditingController();
@@ -46,7 +48,7 @@ class _signinState extends State<signin> {
                 ),
               ),
             ),
-             Padding(
+            Padding(
               padding: EdgeInsets.only(top: 75),
               child: Align(
                 alignment: Alignment.center,
@@ -59,8 +61,8 @@ class _signinState extends State<signin> {
                 ),
               ),
             ),
-             Padding(
-              padding: EdgeInsets.only(top: 10,bottom: 40),
+            Padding(
+              padding: EdgeInsets.only(top: 10, bottom: 40),
               child: Align(
                 alignment: Alignment.center,
                 child: Text(
@@ -89,16 +91,17 @@ class _signinState extends State<signin> {
               textInputType: TextInputType.visiblePassword,
             ),
             Spacer(),
-            MyButtom(
-                text: tr("sign_in"),
+            Obx(() => MyButtom(
+                text: isWaite.value ? tr("please_waite") : tr("sign_in"),
                 onPressed: () {
-                  signIn(phone_num:phone_num, password: password);
+                  isWaite.value = true;
+                  signIn(phone_num: phone_num, password: password);
                   //Get.to(HomePage());
-                  newUser=false;
+                  updateSeen();
                 },
-                color: primaryColor,
+                color: isWaite.value ? Colors.grey : primaryColor,
                 height: heightScreen * 0.07,
-                width: widthScreen * 0.8),
+                width: widthScreen * 0.8)),
             Padding(
               padding: EdgeInsets.only(top: 40),
               child: Align(
@@ -107,7 +110,7 @@ class _signinState extends State<signin> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                       Text(
+                      Text(
                         tr("dont_have_any_account"),
                         style: const TextStyle(
                           color: Colors.black,
@@ -116,10 +119,9 @@ class _signinState extends State<signin> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.of(context).push(MaterialPageRoute(
-                              builder: (context) => SignUp()));
+                          Get.to(SignUp());
                         },
-                        child:  Text(
+                        child: Text(
                           tr("sign_up"),
                           style: const TextStyle(
                             color: Colors.deepOrange,
@@ -138,6 +140,4 @@ class _signinState extends State<signin> {
       ),
     );
   }
-
-
 }

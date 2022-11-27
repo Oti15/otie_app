@@ -2,10 +2,13 @@ import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:otie_app/utils/constants.dart';
 import 'package:otie_app/view/home_page/page_view/page_view_main.dart';
 import 'package:otie_app/view/home_page/widgets/home_page_app_bar.dart';
+import 'package:otie_app/view/widgets/my_buttom.dart';
 import '../../model/cart_item_model.dart';
+import '../../services/api_services.dart';
 import '../create_order_page/create_order_page.dart';
 import '../home_clening/view1.dart';
 import '../washing_and_cleaning/washing_and_cleaning.dart';
@@ -27,23 +30,9 @@ class _HomePageState extends State<HomePage> {
     super.dispose();
   }
 
-  List<String> names = ["bronze".tr(), "silver".tr(), "gold".tr()];
+  List<String> names = [tr("bronze"), tr("silver"), tr("gold")];
 
-  Future getItems() async {
-    var url = Uri.parse("https://otie-app.herokuapp.com/items?section=laundry");
-    var response = await http.get(url);
-    Map<String, dynamic> map = json.decode(response.body);
-    List list1 =  map.values.toList();
-    CardItemList.clear();
-    for (int i = 0; i < list1.length; i++) {
-      for (int j=0 ; j< list1.length ; j++){
-      CardItemList.add(CardItemModel(icon: list1[i][j]['nameEN'], name: list1[i][j]['nameEN'], price: '2000', des: 'late_final_string_price'.tr()) );
-      setState(() {});
-        print(list1[i][j]['nameEN']);
-    }}
-    //print(list1);
-    print(CardItemList.length);
-  }
+
 
   // Future getItems2() async {
   //   var url = Uri.parse("https://otie-app.herokuapp.com/items?section=laundry");
@@ -79,17 +68,11 @@ class _HomePageState extends State<HomePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                TextButton(
-                    onPressed: () {
-                      //getItems();
-                      getItems();
-                    },
-                    child: Text("GetData")),
                 Padding(
                   padding:
                       EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
                   child: Text(
-                    "OTIEـPromos".tr(),
+                    tr("OTIEـPromos"),
                     style: const TextStyle(
                         fontSize: largeTitleFontSize,
                         fontWeight: FontWeight.bold,
@@ -103,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: EdgeInsets.only(left: 20, right: 20, top: 25),
                   child: Text(
-                    "select_servies".tr(),
+                    tr("select_servies"),
                     style: const TextStyle(
                         fontSize: largeTitleFontSize,
                         fontWeight: FontWeight.bold,
@@ -118,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                       children: [
                         catogary(
                           x: false,
-                          name: 'homeـcleaning'.tr(),
+                          name: tr('homeـcleaning'),
                           image: 'assets/images/home_cleaning.png',
                           detailsPage: HomeCleningp1(),
                         ),
@@ -127,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                         ),
                         catogary(
                           x: false,
-                          name: 'laundry'.tr(),
+                          name: tr('laundry'),
                           image: 'assets/images/laundry.png',
                           detailsPage: CreateOrderPage(),
                         )
@@ -135,7 +118,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     catogary(
                       x: true,
-                      name: 'washing_and_cleaning'.tr(),
+                      name: tr('washing_and_cleaning'),
                       image: 'assets/images/washing_and_cleaning.png',
                       detailsPage: WashingCLeaning(),
                     )
@@ -144,7 +127,7 @@ class _HomePageState extends State<HomePage> {
                 Padding(
                   padding: const EdgeInsets.only(left: 25, right: 20, top: 25),
                   child: Text(
-                    "home_cleaning_services".tr(),
+                    tr("home_cleaning_services"),
                     style: const TextStyle(
                         fontSize: largeTitleFontSize,
                         fontWeight: FontWeight.bold,
@@ -162,6 +145,7 @@ class _HomePageState extends State<HomePage> {
                         return services(name: names[index]);
                       }),
                 ),
+
                 const SizedBox(
                   height: 24,
                 ),
