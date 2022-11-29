@@ -24,6 +24,9 @@ const double iconSize1=40;
 const double iconSize2=24;
 const double iconSize3=16;
 
+//* Font family
+const  primaryFont = 'Bold';
+
 
 
 TextStyle bodyText(Color? color , {bool isCode = false , bool isNote = false}) {
