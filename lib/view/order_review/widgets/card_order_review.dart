@@ -34,7 +34,11 @@ class _CardOrderReviewState extends State<CardOrderReview> {
           borderRadius: BorderRadius.circular(15), color: primaryBgColor),
       child: Row(
         children: [
-          Image.asset(widget.icon,height: iconSize1,),
+          Image.network(
+            "$BaseUrl/images/${widget.icon}",
+            height: iconSize1,
+          ),
+         // Image.asset(widget.icon,height: iconSize1,),
           const SizedBox(
             width: 16,
           ),

@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
+import 'package:http/http.dart';
 import 'package:otie_app/utils/total_price.dart';
 import 'package:otie_app/widgets/card_item.dart';
 
@@ -26,32 +27,38 @@ class CreateOrderPage extends StatefulWidget {
 }
 
 class _CreateOrderPageState extends State<CreateOrderPage> {
+  Future getItems() async {
+    var url = Uri.parse("https://otie-app.herokuapp.com/items?section=laundry");
+    var response = await http.get(url);
+    Map<String, dynamic> map = json.decode(response.body);
+    List list1 = map.values.toList();
+    CardItemList.clear();
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 5; j++) {
+        CardItemList.add(CardItemModel(
+            icon: list1[i][j]['imageUrl'],
+            name: list1[i][j]['nameEN'],
+            price: list1[i][j]['price'].toString(),
+            des: tr('late_final_string_price'),
+            itemId: list1[i][j]['_id'].toString()));
+        setState(() {});
+        print("============================================");
+        print(list1[i][j]);
+        print(list1[i][j]['_id']);
+        print("============================================");
+        // print(list1[j]);
 
-  // Future getItems() async {
-  //   var url = Uri.parse("https://otie-app.herokuapp.com/items?section=laundry");
-  //   var response = await http.get(url);
-  //   Map<String, dynamic> map = json.decode(response.body);
-  //   List list1 =  map.values.toList();
-  //   CardItemList.clear();
-  //   for (int i = 0; i < list1.length; i++) {
-  //     for (int j=0 ; j< list1.length ; j++){
-  //       setState(() {
-  //         CardItemList.add(CardItemModel(icon: list1[i][j]['imageUrl'], name: list1[i][j]['nameEN'], price: list1[i][j]['price'], des:tr('late_final_string_price')) );
-  //
-  //       });
-  //       print(list1[i][j]['imageUrl']);
-  //       print("======================");
-  //      // print(list1[j]);
-  //
-  //     }}
-  //  // print(list1);
-  //   print(CardItemList.length);
-  // }
+      }
+    }
+    print(list1);
+    print("============================================");
+    print(CardItemList.length);
+  }
 
   @override
   void initState() {
-
-    super.initState();
+     getItems();
+     super.initState();
   }
 
   @override
@@ -61,14 +68,18 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
 
     return Scaffold(
       backgroundColor: primaryBgColor,
-      appBar: MySimpleAppBar(title: tr('creatـorder')),
+      appBar: MySimpleAppBar(
+        title: tr('creatـorder'),
+      ),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Column(
           children: [
-            TextButton(onPressed: (){
-              //getItems();
-            }, child: Text("GetData",)),
+            // TextButton(
+            //     onPressed: () {
+            //       //getItems();
+            //     },
+            //     child: Text("Get Data")),
             ItemCatogaryList(),
             Spacer(),
             Spacer(),
@@ -80,13 +91,14 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                   Text(tr("total_price"),
+                  Text(
+                    tr("total_price"),
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: xLargeTitleFontSize),
                   ),
                   Obx(() => Text(
-                        "${totalPrice.value} ${tr("currency")} ",
+                        "${totalLaundryPrice.value} ${tr("currency")} ",
                         style: const TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: xLargeTitleFontSize),
@@ -98,16 +110,20 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
             MyButtom(
                 text: tr("add_to_cart"),
                 onPressed: () {
-                  if (totalPrice.value != null && totalPrice.value !=0 ){
-                  Get.to(OrderReviewPage(
-                    totalPrice: totalPrice.value,
-                  ));}else{
+                  if (totalLaundryPrice.value != null &&
+                      totalLaundryPrice.value != 0) {
+                    Get.to(OrderReviewPage(
+                      totalPrice: totalLaundryPrice.value,
+                    ));
+                  } else {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(tr("snackbar_select_item")),
                       ),
                     );
                   }
+
+                  Order();
                 },
                 color: primaryColor,
                 height: heightScreen * 0.07,
@@ -120,4 +136,6 @@ class _CreateOrderPageState extends State<CreateOrderPage> {
       ),
     );
   }
+
+  void Order() {}
 }

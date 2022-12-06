@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:otie_app/services/is_waiting_buttom.dart';
 import 'package:otie_app/view/auth/widgets/my_text_field.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../services/api_services.dart';
@@ -16,14 +15,14 @@ import 'package:easy_localization/easy_localization.dart';
 TextEditingController password = TextEditingController();
 TextEditingController phone_num = TextEditingController();
 
-class signin extends StatefulWidget {
-  const signin({Key? key}) : super(key: key);
+class SignIn extends StatefulWidget {
+  const SignIn({Key? key}) : super(key: key);
 
   @override
-  State<signin> createState() => _signinState();
+  State<SignIn> createState() => _SignInState();
 }
 
-class _signinState extends State<signin> {
+class _SignInState extends State<SignIn> {
   @override
   Widget build(BuildContext context) {
     double heightScreen = MediaQuery.of(context).size.height;

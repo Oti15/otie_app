@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:loading_indicator/loading_indicator.dart';
 import '../OnBoarding/onbording_screen.dart';
 
@@ -18,10 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(
         const Duration(seconds: 3),
-            () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => Onbording()),
-        ));
+            () => Get.to(Onbording()));
   }
 
 

@@ -6,6 +6,7 @@ import 'package:otie_app/view/widgets/my_buttom.dart';
 import 'package:otie_app/view/widgets/my_simple_app_bar.dart';
 
 import '../../data/booking_data.dart';
+import '../../services/api_services.dart';
 import 'widgets/Pickup_delivery.dart';
 import 'widgets/expres_ delivery.dart';
 import 'widgets/show_time.dart';
@@ -253,10 +254,6 @@ class _BookingState extends State<Booking> {
             child: MyButtom(
               text: 'next'.tr(),
               onPressed: () {
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => ()),
-                // );
               },
               color: primaryColor,
               height: MediaQuery.of(context).size.height * 0.07,
@@ -280,10 +277,10 @@ class _BookingState extends State<Booking> {
           });
         },
         child: Container(
-          margin: EdgeInsets.symmetric(horizontal: 10),
-          padding: EdgeInsets.symmetric(horizontal: 25, vertical: 8),
+          margin: const EdgeInsets.symmetric(horizontal: 10),
+          padding: const EdgeInsets.symmetric(horizontal: 25, vertical: 8),
           decoration: BoxDecoration(
-              color: active ? Color(0xffF05A25) : null,
+              color: active ? primaryColor : null,
               borderRadius: BorderRadius.circular(20)),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -295,7 +292,7 @@ class _BookingState extends State<Booking> {
                     fontWeight: FontWeight.bold,
                     fontSize: smallFontSize),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 8,
               ),
               Text("${day}",

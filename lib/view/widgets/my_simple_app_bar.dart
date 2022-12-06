@@ -1,15 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:otie_app/utils/total_price.dart';
 
 import '../../utils/constants.dart';
 
 
-AppBar MySimpleAppBar({required String title}){
+AppBar MySimpleAppBar({required String title,}){
   return AppBar(
     toolbarHeight: 100,
     elevation: 0,
     backgroundColor: primaryBgColor,
     centerTitle: true,
-    actions: [
+    actions: const [
       SizedBox(
         width: 55,
       ),
@@ -22,8 +25,8 @@ AppBar MySimpleAppBar({required String title}){
             size: iconSize2,
             color: Colors.black,
           ),
-          onPressed: () {
-            Navigator.pop(context);
+          onPressed: (){
+            Get.back();
           },
         );
       },

@@ -3,7 +3,8 @@ import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 
 import '../../../utils/constants.dart';
-import '../../profile/view1.dart';
+import '../../profile/edit_profile.dart';
+import '../../profile/profile.dart';
 
 AppBar HomePageAppBar() {
   return AppBar(
@@ -40,7 +41,7 @@ AppBar HomePageAppBar() {
             color: Colors.black,
           ),
           onPressed: () {
-            Get.to(const profile());          },
+            Get.to(const Profile());},
         );
       },
     ),

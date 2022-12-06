@@ -50,7 +50,7 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
               icon: widget.icon,
               title: widget.title,
               price: widget.price,
-              meter: "/Meter",
+              meter: "/Meter", itemId: '',
             ),
             widget.showDropDown
                 ? Padding(
@@ -95,7 +95,7 @@ class _DetailsWashinCleaningState extends State<DetailsWashinCleaning> {
                         fontSize: xLargeTitleFontSize),
                   ),
                   Obx (()=>Text(
-                    "${totalPrice.value} ${tr("currency")} ",
+                    "${totalWashinfAndCleaningPrice.value} ${tr("currency")} ",
                     style: const TextStyle(
                         fontWeight: FontWeight.bold,
                         fontSize: xLargeTitleFontSize),

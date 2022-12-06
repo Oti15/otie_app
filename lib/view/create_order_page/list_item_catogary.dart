@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:otie_app/widgets/card_item.dart';
 import '../../model/cart_item_model.dart';
 import 'package:http/http.dart' as http;
+
 class ItemCatogaryList extends StatefulWidget {
   @override
   State<ItemCatogaryList> createState() => _ItemCatogaryListState();
@@ -12,13 +13,11 @@ class ItemCatogaryList extends StatefulWidget {
 class _ItemCatogaryListState extends State<ItemCatogaryList> {
   var totalPrice = 0;
 
-
-
   @override
   void initState() {
-
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -30,9 +29,8 @@ class _ItemCatogaryListState extends State<ItemCatogaryList> {
                 icon: CardItemList[index].icon,
                 title: CardItemList[index].name,
                 price: CardItemList[index].price,
+                itemId: CardItemList[index].itemId,
               )),
     );
   }
-
-
 }

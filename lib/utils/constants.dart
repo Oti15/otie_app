@@ -1,5 +1,24 @@
 
 import 'package:flutter/material.dart';
+import 'package:get/get_rx/src/rx_types/rx_types.dart';
+
+//* Is waitint buttom
+RxBool isWaite = false.obs;
+
+//* Url
+const BaseUrl = "https://otie-app.herokuapp.com";
+
+//* Token
+// ignore: non_constant_identifier_names
+String Token =("No Token Yet");
+
+//* user info
+late RxString name = "".obs;
+late RxString phoneNumberl = "".obs;
+late RxString location="".obs;
+
+
+
 
 //* Colors
 const Color primaryColor = Color(0xffF05A25);

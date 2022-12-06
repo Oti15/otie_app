@@ -160,70 +160,76 @@ class _ServiceLevelState extends State<ServiceLevel> {
                   ),
                 ),
                 Row(
-                  children: const [
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.0, right: 20),
-                      child: InsertPhoto(
-                          height: 60,
-                          width: 60,
-                          assetImage: 'assets/images/cleaning_sirves.png'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.0, right: 20),
-                      child: InsertPhoto(
-                          height: 60,
-                          width: 60,
-                          assetImage: 'assets/images/Kitchen_sirves.png'),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 20.0, right: 20, top: 10),
-                      child: InsertPhoto(
-                          height: 60,
-                          width: 60,
-                          assetImage: 'assets/images/Bathroom_sirves.png'),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
                   children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 44, right: 44, top: 0),
-                      child: Text(
-                        tr("general"),
-                        style: const TextStyle(
-                            fontSize: primaryFontSize,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'mid',
-                            color: Colors.grey),
-                      ),
+                    Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 10.0, right: 0),
+                          child: InsertPhoto(
+                              height: 60,
+                              width: 60,
+                              assetImage: 'assets/images/cleaning_sirves.png'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 10, right: 0, top: 10),
+                          child: Text(
+                            tr("general"),
+                            style: const TextStyle(
+                                fontSize: primaryFontSize,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'mid',
+                                color: Colors.grey),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 40, right: 40, top: 0),
-                      child: Text(
-                        tr("kitchen"),
-                        style: const TextStyle(
-                            fontSize: primaryFontSize,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'mid',
-                            color: Colors.grey),
-                      ),
+                    Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 20.0, right: 0),
+                          child: InsertPhoto(
+                              height: 60,
+                              width: 60,
+                              assetImage: 'assets/images/Kitchen_sirves.png'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, right: 0, top: 10),
+                          child: Text(
+                            tr("kitchen"),
+                            style: const TextStyle(
+                                fontSize: primaryFontSize,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'mid',
+                                color: Colors.grey),
+                          ),
+                        ),
+                      ],
                     ),
-                    Padding(
-                      padding: EdgeInsets.only(left: 40, right: 40, top: 0),
-                      child: Text(
-                        tr("bathroom"),
-                        style: const TextStyle(
-                            fontSize: primaryFontSize,
-                            fontWeight: FontWeight.bold,
-                            fontFamily: 'mid',
-                            color: Colors.grey),
-                      ),
+                    Column(
+                      children: [
+                        const Padding(
+                          padding: EdgeInsets.only(left: 20.0, right: 0, top: 10),
+                          child: InsertPhoto(
+                              height: 60,
+                              width: 60,
+                              assetImage: 'assets/images/Bathroom_sirves.png'),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(left: 20, right: 0, top: 0),
+                          child: Text(
+                            tr("bathroom"),
+                            style: const TextStyle(
+                                fontSize: primaryFontSize,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'mid',
+                                color: Colors.grey),
+                          ),
+                        ),
+                      ],
                     ),
+
                   ],
-                )
+                ),
               ],
             ),
           ),
