@@ -25,6 +25,12 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   @override
+  void initState() {
+    getUserDetails();
+    super.initState();
+  }
+
+  @override
   void dispose() {
     controller.dispose();
     super.dispose();
@@ -32,31 +38,6 @@ class _HomePageState extends State<HomePage> {
 
   List<String> names = [tr("bronze"), tr("silver"), tr("gold")];
 
-
-
-  // Future getItems2() async {
-  //   var url = Uri.parse("https://otie-app.herokuapp.com/items?section=laundry");
-  //   http.Response response = await http.get(url);
-  //   String body = response.body;
-  //   List<dynamic> list1 = json.decode(body);
-  //   CardItemList.clear();
-  //   for (int i = 0; i < list1.length; i++) {
-  //     CardItemList.add(CardItemModel(icon: list1[i]['imageUrl'], name: list1[i]['nameEN'], price: list1[i]['price'], des: 'late_final_string_price'.tr()) );
-  //     setState(() {});
-  //   }
-  //   print(list1);
-  // }
-
-  // void getHttp() async {
-  //   try {
-  //     var response = await Dio()
-  //         .get('https://otie-app.herokuapp.com/items?section=laundry');
-  //
-  //     print(response);
-  //   } catch (e) {
-  //     print(e);
-  //   }
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +49,11 @@ class _HomePageState extends State<HomePage> {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
+                TextButton(
+                    onPressed: () {
+                      creatOrderRequest(type: "laundry");
+                    },
+                    child: Text("Post Order")),
                 Padding(
                   padding:
                       EdgeInsets.only(left: 20, right: 20, top: 10, bottom: 5),
@@ -145,7 +131,6 @@ class _HomePageState extends State<HomePage> {
                         return services(name: names[index]);
                       }),
                 ),
-
                 const SizedBox(
                   height: 24,
                 ),

@@ -84,6 +84,20 @@
   "user_registered_successfully": "User Registered Successfully",
   "error": "Error",
   "please_enter_correct_information": "Please Enter Correct Information",
-"sign_in_successfully": "Sign In Successfully"
+  "sign_in_successfully": "Sign In Successfully",
+  "profile_details": "Profile Details",
+  "save_edit": "Save Edit",
+  "save_edit_successfully": "Save Edit Successfully",
+  "save_now": "SAVE NOW",
+  "save_edit_error": "Ther are error, please try agan",
+  "account": "Account",
+  "name": "Name",
+  "phone_number": "Phone number",
+  "edit_account": "Edit Account",
+  "delet_account": "Delet Account",
+  "sign_out": "Sign out",
+  "account_credit": "Account Credit",
+  "enter_your_name": "Enter your name",
+  "province": "Province"
 
 }

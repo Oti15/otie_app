@@ -163,7 +163,7 @@ class _ServiceLevelState extends State<ServiceLevel> {
                   children: [
                     Column(
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 10.0, right: 0),
                           child: InsertPhoto(
                               height: 60,
@@ -185,7 +185,7 @@ class _ServiceLevelState extends State<ServiceLevel> {
                     ),
                     Column(
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 20.0, right: 0),
                           child: InsertPhoto(
                               height: 60,
@@ -207,7 +207,7 @@ class _ServiceLevelState extends State<ServiceLevel> {
                     ),
                     Column(
                       children: [
-                        Padding(
+                        const Padding(
                           padding: EdgeInsets.only(left: 20.0, right: 0, top: 10),
                           child: InsertPhoto(
                               height: 60,

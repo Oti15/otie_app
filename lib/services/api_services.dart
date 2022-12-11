@@ -1,17 +1,24 @@
 import 'dart:convert';
-
-import 'package:easy_localization/easy_localization.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import '../model/cart_item_model.dart';
+import 'package:http/http.dart';
+import 'package:otie_app/services/snack_bar.dart';
+import '../model/order.dart';
+import '../utils/constants.dart';
 import '../view/home_page/home_page.dart';
 import 'package:http/http.dart' as http;
 
-import 'is_waiting_buttom.dart';
-
 // ignore: constant_identifier_names
-const BaseUrl = "https://otie-app.herokuapp.com";
 
+//* Headers of Url
+// ignore: non_constant_identifier_names
+String token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzg2OGZkOGMzOTM0OGU1OWNkNTRiMGUiLCJpYXQiOjE2NzA0ODUzNzMsImV4cCI6MTY3MzA3NzM3M30.ADU_z4rN5bucCMW93lnlH5l89Bzy5n_qxj4hOtn8Rmc";
+
+////////////// headers request //////////////
+final headers = {'Authorization': 'Bearer $token'};
+
+////////////// sign in request //////////////
 void signIn({
   required phone_num,
   required password,
@@ -23,9 +30,15 @@ void signIn({
   });
   if (response.statusCode == 200) {
     print(" OK 200");
+    Map<String, dynamic> map = json.decode(response.body);
+    //Get token
+    Token = map['token'].toString();
+    print('+++++++++++++++++++++++++++++++++++');
+    print(map['token']);
+
     showSnackbar_signInSuccessfully();
     isWaite.value = false;
-     Get.to(HomePage());
+    Get.to(HomePage());
   } else {
     print(response.statusCode);
     showSnackbar_erorrAuth();
@@ -33,16 +46,7 @@ void signIn({
   }
 }
 
-SnackbarController showSnackbar_signInSuccessfully() {
-  return Get.showSnackbar(
-    GetSnackBar(
-      title: "sign_in",
-      message: tr('sign_in_successfully'),
-      duration: Duration(seconds: 3),
-    ),
-  );
-}
-
+////////////// sign up request //////////////
 void signUp({
   required username,
   required password,
@@ -59,7 +63,10 @@ void signUp({
   if (response.statusCode == 200) {
     print(" OK 200");
     showSnackbar_registerationSuccessfully();
+    Map<String, dynamic> map = json.decode(response.body);
+    Token = map['token'].toString();
     isWaite.value = false;
+
     Get.to(HomePage());
   } else {
     print(response.statusCode);
@@ -69,22 +76,85 @@ void signUp({
   }
 }
 
-SnackbarController showSnackbar_registerationSuccessfully() {
-  return Get.showSnackbar(
-    GetSnackBar(
-      title: tr("user_registration"),
-      message: tr('user_registered_successfully'),
-      duration: Duration(seconds: 3),
-    ),
+////////////// get user details request //////////////
+Future getUserDetails() async {
+  var url = Uri.parse("https://otie-app.herokuapp.com/user");
+  print(Token);
+  String token =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Mzg2OGZkOGMzOTM0OGU1OWNkNTRiMGUiLCJpYXQiOjE2NzA0MjY4MTksImV4cCI6MTY3MzAxODgxOX0.VDMBlAYVqZZd8Gf8C6xlpA7CGk8SA07GRoNLtbbngmc";
+  var response = await http.get(
+    url,
+    headers: headers,
   );
+
+  Map<String, dynamic> map = json.decode(response.body);
+  name.value = map['fullName'].toString();
+  phoneNumberl.value = map['phoneNumber'].toString();
+  location.value = map['location'].toString();
+  print(map);
+  print("================================================");
+  print(map['fullName']);
+  print(map['token'].toString());
 }
 
-SnackbarController showSnackbar_erorrAuth() {
-  return Get.showSnackbar(
-    GetSnackBar(
-      title: tr("error"),
-      message: tr('please_enter_correct_information'),
-      duration: Duration(seconds: 3),
-    ),
-  );
+////////////// edit account request //////////////
+Future<void> editAccountRequest({ename, elocation, ephone}) async {
+  final url = Uri.parse('https://otie-app.herokuapp.com/user');
+  final jsonBody = {
+    "fullName": ename,
+    'province': elocation,
+    'phoneNumber': ephone,
+  };
+  final response = await patch(url, headers: headers, body: jsonBody);
+  if (response.statusCode.toString() == "200") {
+    name.value = ename;
+    phoneNumberl.value = ephone;
+    Get.back();
+    showSnackbar_saveEditSuccessfully();
+    isWaite.value = false;
+  } else {
+    Get.back();
+    showSnackbar_saveEditError();
+    isWaite.value = false;
+  }
+  print('Status code: ${response.statusCode}');
+  print('Body: ${response.body}');
 }
+
+////////////// create order request //////////////
+void creatOrderRequest({type}) async {
+  var url = Uri.parse('https://otie-app.herokuapp.com/orders');
+  final jsonBody = '''{
+      "type": $type,
+      "subAdminId": "6369be24f500bf4905cf65e5",
+      "items": $orders,
+      "pickupDate": "30/11/2022",
+      "pickupTime": "12:33am",
+      "pickupLocation": "test",
+      "deliveryDate": "30/11/2022",
+      "deliveryTime": "12:33pm",
+      "deliveryLocation": "test",
+      "totalPrice": 0
+    }''';
+  final response = await http.post(url, headers: headers, body: jsonBody);
+
+  if (response.statusCode == 200) {
+    print(response.statusCode);
+    print(" OK 200");
+  } else {
+    print(response.statusCode);
+    print(" ERORR 401");
+  }
+}
+
+
+// updateToken(String token) async {
+//   SharedPreferences prefs = await SharedPreferences.getInstance();
+//   prefs.setString('token', token);
+// }
+//
+// readToken()async{
+//   final prefs = await SharedPreferences.getInstance();
+//   final token = prefs.getString('token') ?? "No Token Exist";
+//   return token;
+// }

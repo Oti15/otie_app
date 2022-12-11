@@ -6,13 +6,14 @@ class CardHomeCleaningModel {
   String icon;
   String title;
   String price;
-  bool showDropDown = true;
+  bool showDropDown;
 
-  CardHomeCleaningModel(
-      {required this.icon,
-      required this.title,
-      required this.price,
-      required this.showDropDown});
+  CardHomeCleaningModel({
+    required this.icon,
+    required this.title,
+    required this.price,
+    this.showDropDown = true,
+  });
 }
 
 List<CardHomeCleaningModel> ListCardHomeCleaning = [

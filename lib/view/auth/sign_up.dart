@@ -5,7 +5,6 @@ import 'package:otie_app/view/auth/widgets/my_text_field.dart';
 import 'package:otie_app/view/home_page/home_page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../services/api_services.dart';
-import '../../services/is_waiting_buttom.dart';
 import '../../services/update_seen_onbording_prefs.dart';
 import '../../utils/constants.dart';
 import '../../utils/total_price.dart';
@@ -147,7 +146,7 @@ class _SignUpState extends State<SignUp> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.to(signin());
+                          Get.to(SignIn());
                         },
                         child: Text(
                           tr("sign_in"),

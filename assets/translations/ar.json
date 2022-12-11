@@ -83,8 +83,10 @@
   "user_registration": "تسجيل المستخدم",
   "user_registered_successfully": "تم تسجيل المستخدم بنجاح",
   "error": "خطأ",
-  "please_enter_correct_information": "الرجاء إدخال المعلومات الصحيحة"
+  "please_enter_correct_information": "الرجاء إدخال المعلومات الصحيحة",
+  "sign_in_successfully": "تم تسجيل الدخول بنجاخ",
 
+  "profile_details": "تفاصيل الحسساب"
 
 
 }

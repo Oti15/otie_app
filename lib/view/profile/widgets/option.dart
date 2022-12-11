@@ -1,132 +1,123 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 
+import '../../../services/api_services.dart';
 import '../../../utils/constants.dart';
-import '../view1.dart';
+import '../../auth/sign_in.dart';
+import '../edit_profile.dart';
 
 class Option extends StatelessWidget {
-  const Option({Key? key,
-    required this.x
-  }) : super(key: key);
+  const Option({Key? key, required this.x}) : super(key: key);
   final bool x;
 
   @override
   Widget build(BuildContext context) {
-    return
-      (x==true)?
-      Center(
-      child: Container(
-        padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-        height: MediaQuery.of(context).size.height * 0.14,
-        width: MediaQuery.of(context).size.width - 80,
-        decoration: BoxDecoration(
-            color: Colors.grey.withOpacity(0.15),
-            borderRadius: BorderRadius.circular(25)),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                  splashColor: Colors.grey.withOpacity(0.00),
-                  highlightColor: Colors.grey.withOpacity(0.00),
-                  style: ButtonStyle(overlayColor: MaterialStatePropertyAll(Colors.grey.withOpacity(0.00))),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => profile()),
-                    );
-                  },
-                  icon: Icon(
-                    Icons.lock_outline,
-                    color: Colors.grey,
-                    size: 35,
-                  ),
-                ),
-                TextButton(
-                  style: ButtonStyle(overlayColor: MaterialStatePropertyAll(Colors.grey.withOpacity(0.00))),
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) => profile()),
-                    );
-                  },
-                  child: Text("Change password",
-                      style: TextStyle(
-                          fontSize: primaryFontSize,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Roboto',
-                          color: Colors.black)),
-                ),
-              ],
-            ),
-            Container(
-              height: 1,
-              width: MediaQuery.of(context).size.width - 60,
-              color: Colors.grey.withOpacity(0.3),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                IconButton(
-                  splashColor: Colors.grey.withOpacity(0.00),
-                  highlightColor: Colors.grey.withOpacity(0.00),
-                  onPressed: () {},
-                  icon: Icon(
-                    Icons.delete_outline,
-                    color: Colors.grey,
-                    size: 35,
-                  ),
-                ),
-
-                TextButton(
-                  style: ButtonStyle(overlayColor: MaterialStatePropertyAll(Colors.grey.withOpacity(0.00))),
-                  onPressed: () {},
-                  child: Text("Delete account",
-                      style: TextStyle(
-                          fontSize: primaryFontSize,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Roboto',
-                          color: Colors.black)),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    )
-    :Center(
+    if ((x == true)) {
+      return Center(
         child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 20,vertical: 10),
-          height: MediaQuery.of(context).size.height * 0.07,
+          padding: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+          height: MediaQuery.of(context).size.height * 0.14,
           width: MediaQuery.of(context).size.width - 80,
           decoration: BoxDecoration(
               color: Colors.grey.withOpacity(0.15),
-              borderRadius: BorderRadius.circular(25)
-          ),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+              borderRadius: BorderRadius.circular(25)),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              IconButton(
-                splashColor: Colors.grey.withOpacity(0.00),
-                highlightColor: Colors.grey.withOpacity(0.00),
-                style: ButtonStyle(overlayColor: MaterialStatePropertyAll(Colors.grey.withOpacity(0.00))),
-                onPressed: () {},
-                icon: Icon(Icons.logout,color: Colors.red,size: 35,),
+              ProfileInkWell(
+                icon: Icons.edit_outlined,
+                text: tr('edit_account'),
+                iconColor: Colors.grey,
+                textColor: Colors.black,
+                ontap: () {
+                  Get.to(EditProfile());
+                },
               ),
-              TextButton(
-                style: ButtonStyle(overlayColor: MaterialStatePropertyAll(Colors.grey.withOpacity(0.00))),
-                onPressed: () {},
-                child: Text("Sign out",
-                    style: TextStyle(
-                        fontSize: primaryFontSize,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Roboto',
-                        color: Colors.red)),
+              Container(
+                height: 1,
+                width: MediaQuery.of(context).size.width - 60,
+                color: Colors.grey.withOpacity(0.3),
+              ),
+              ProfileInkWell(
+                icon: Icons.delete_outline,
+                text: tr('delet_account'),
+                iconColor: Colors.grey,
+                textColor: Colors.black,
+                ontap: () {
+                },
               ),
             ],
           ),
         ),
       );
+    } else {
+      return Center(
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          height: MediaQuery.of(context).size.height * 0.07,
+          width: MediaQuery.of(context).size.width - 80,
+          decoration: BoxDecoration(
+              color: Colors.grey.withOpacity(0.15),
+              borderRadius: BorderRadius.circular(25)),
+          child: ProfileInkWell(
+            icon: Icons.logout,
+            text: tr('sign_out'),
+            iconColor: Colors.red,
+            textColor: Colors.red,
+            ontap: () {
+              Get.offAll(SignIn());
+              Token = ("No Token Exist");
+            },
+          ),
+        ),
+      );
+    }
   }
 }
+
+class ProfileInkWell extends StatelessWidget {
+  String text;
+  IconData icon;
+  Color iconColor;
+  Color textColor;
+  void Function()? ontap;
+
+  ProfileInkWell({
+    required this.icon,
+    required this.text,
+    required this.iconColor,
+    required this.textColor,
+    required this.ontap,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: ontap,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          Icon(
+            icon,
+            color: iconColor,
+            size: 35,
+          ),
+          const SizedBox(
+            width: 16,
+          ),
+          Text(text,
+              style: TextStyle(
+                  fontSize: primaryFontSize,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: 'Roboto',
+                  color: textColor)),
+        ],
+      ),
+    );
+  }
+}
+
+
