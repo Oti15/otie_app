@@ -6,7 +6,7 @@ import 'package:get/get_core/src/get_main.dart';
 import 'package:otie_app/view/order_review/widgets/card_order_review.dart';
 import '../../utils/constants.dart';
 import '../../utils/total_price.dart';
-import '../booking/view.dart';
+import '../booking/pickup.dart';
 import '../create_order_page/list_item_catogary.dart';
 import '../widgets/my_buttom.dart';
 import '../widgets/my_simple_app_bar.dart';

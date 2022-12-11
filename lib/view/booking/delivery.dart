@@ -10,11 +10,11 @@ import 'widgets/Pickup_delivery.dart';
 import 'widgets/expres_ delivery.dart';
 import 'widgets/show_time.dart';
 
-class Booking extends StatefulWidget {
-  const Booking({Key? key}) : super(key: key);
+class Delivery_Booking extends StatefulWidget {
+  const Delivery_Booking({Key? key}) : super(key: key);
 
   @override
-  State<Booking> createState() => _BookingState();
+  State<Delivery_Booking> createState() => _Delivery_BookingState();
 }
 
 // define object of data single date in list date use it in fun in line 425
@@ -23,9 +23,9 @@ class objectDay {
   late String name;
 }
 
-class _BookingState extends State<Booking> {
+class _Delivery_BookingState extends State<Delivery_Booking> {
   String choose = 'Morning';
-  String selectedValue = 'Pickup';
+  String selectedValue = 'Delivery';
   String Delivery = 'Regular Delivery';
   // use it to get list of 7 days after today in line 97 from fun in line 425
   var arrayDays = list7days();
@@ -37,7 +37,7 @@ class _BookingState extends State<Booking> {
       appBar: MySimpleAppBar(title: tr('booking')),
       backgroundColor: primaryBgColor,
       body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-         Padding(
+        Padding(
           padding: const EdgeInsets.only(left: 20,right: 20, top: 0),
           child: Text(
             "select_date_time".tr(),
@@ -56,26 +56,6 @@ class _BookingState extends State<Booking> {
           children: [
             RadioList(
               EX: true,
-              show: true,
-              leading: 'pickup'.tr(),
-              value: 'Pickup',
-              groupValue: selectedValue,
-              onChanged: (value) {
-                setState(() {
-                  selectedValue = "$value";
-                  print("${value}");
-                });
-              },
-              height: 105,
-              radius: 15,
-              width: 175,
-              border: 1,
-            ),
-            const SizedBox(
-              width: 20,
-            ),
-            RadioList(
-              EX: false,
               show: true,
               leading: 'delivery'.tr(),
               value: 'Delivery',
@@ -114,11 +94,11 @@ class _BookingState extends State<Booking> {
           width: MediaQuery.of(context).size.width,
           child: ListView(
             scrollDirection: Axis.horizontal,
-           // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: arrayDays
                 .map((date) => (selectedDay == date.day
-                    ? listDate(true, date?.day, date?.name)
-                    : listDate(false, date?.day, date?.name)))
+                ? listDate(true, date?.day, date?.name)
+                : listDate(false, date?.day, date?.name)))
                 .toList(),
           ),
         ),
@@ -211,7 +191,7 @@ class _BookingState extends State<Booking> {
         else if (choose == 'Afternoon')
           const ShowTime(time: 'afternoon',)
         else if (choose == 'Evening')
-        const ShowTime(time: 'evening',),
+            const ShowTime(time: 'evening',),
         const SizedBox(
           height: 50,
         ),
@@ -382,3 +362,4 @@ List list7days() {
   }
   return arrayDate;
 }
+

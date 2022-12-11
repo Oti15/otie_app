@@ -65,15 +65,14 @@ class RadioList<T> extends StatelessWidget {
         ),
       ),
       child:
-      (EX==false)?
       Center(
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             (show == true)
                 ? InsertPhoto(
-                    height: height*0.40,
-                    width: width*0.40,
+                    height: height*0.35,
+                    width: width*0.35,
                     assetImage: 'assets/icons/delivery_icon.png')
                 : SizedBox(
                     width: 0,
@@ -98,38 +97,7 @@ class RadioList<T> extends StatelessWidget {
           ],
         ),
       )
-          :Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            (show == true)
-                ? Text(
-              leading,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.grey,
-                fontWeight: FontWeight.bold,
-                fontSize: largeTitleFontSize,
-              ),
-            )
-                : Text(
-              leading,
-              style: TextStyle(
-                color: isSelected ? Colors.white : Colors.grey,
-                fontWeight: FontWeight.bold,
-                fontSize: titleFontSize,
-              ),
-            ),
-            (show == true)
-                ? InsertPhoto(
-                height: height*0.43,
-                width: width*0.43,
-                assetImage: 'assets/icons/delivery_icon.png')
-                : SizedBox(
-              width: 0,
-            ),
-          ],
-        ),
-      )
+
     );
   }
 }
